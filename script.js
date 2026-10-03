@@ -41,18 +41,12 @@ document.addEventListener('DOMContentLoaded', () => {
      ========================================================================== */
   const switcherBtns = document.querySelectorAll('.switcher-btn');
   const heroDynamicImage = document.getElementById('hero-dynamic-image');
-  const heroModelTitle = document.getElementById('hero-model-title');
-  const heroModelSub = document.getElementById('hero-model-sub');
 
   const heroModels = {
     simple: {
-      title: 'Essentials Bag (Simple Design)',
-      sub: 'Warna: Abstract-colour • Bahan: Premium heavy canvas',
-      img: 'assets/images/bag_hero.jpg'
+      img: 'assets/images/editorial_hero_model.jpg'
     },
     printed: {
-      title: 'Essentials Bag (Full Printed)',
-      sub: 'Warna: Abstract-colour • Bahan: Premium heavy canvas',
       img: 'assets/images/bag_printed.jpg'
     }
   };
@@ -65,12 +59,10 @@ document.addEventListener('DOMContentLoaded', () => {
       const modelKey = btn.getAttribute('data-model');
       const data = heroModels[modelKey];
 
-      if (data && heroDynamicImage && heroModelTitle) {
+      if (data && heroDynamicImage) {
         heroDynamicImage.style.opacity = '0.3';
         setTimeout(() => {
           heroDynamicImage.src = data.img;
-          heroModelTitle.textContent = data.title;
-          heroModelSub.textContent = data.sub;
           heroDynamicImage.style.opacity = '1';
         }, 180);
       }
@@ -350,11 +342,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
               <div class="modal-actions-row">
                 ${item.rawPrice > 0 ? `
-                  <button class="btn-solid-black" id="modal-add-cart-btn">
+                  <button class="btn-cover-gold" id="modal-add-cart-btn">
                     <span>+ Add to Bag</span>
                   </button>
                 ` : ''}
-                <a href="https://wa.me/6281234567890?text=Halo%20Studio%20Essentials,%20saya%20tertarik%20dengan%20${encodeURIComponent(item.model + ' ' + item.desc)}" target="_blank" rel="noreferrer" class="btn-secondary-white">
+                <a href="https://wa.me/6281234567890?text=Halo%20Studio%20Essentials,%20saya%20tertarik%20dengan%20${encodeURIComponent(item.model + ' ' + item.desc)}" target="_blank" rel="noreferrer" class="btn-cover-dark">
                   <span>Pesan Langsung via WhatsApp ↗</span>
                 </a>
               </div>
