@@ -1,0 +1,23 @@
+{
+  "name": "studio-essentials",
+  "version": "1.0.0",
+  "description": "Studio Essentials — Luxury Brand Strategy & Bespoke Creative Direction Website",
+  "main": "index.html",
+  "scripts": {
+    "start": "serve .",
+    "dev": "serve ."
+  },
+  "keywords": [
+    "luxury",
+    "agency",
+    "portfolio",
+    "squarespace-alternative",
+    "luxe-theme",
+    "brand-strategy"
+  ],
+  "author": "Studio Essentials",
+  "license": "MIT",
+  "devDependencies": {
+    "serve": "^14.2.4"
+  }
+}

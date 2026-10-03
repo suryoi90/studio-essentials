@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Studio Essentials — Luxury Brand Strategy & Bespoke Creative Direction</title>
+  
+  <!-- SEO & Social Meta Tags -->
+  <meta name="description" content="Studio Essentials is a premier creative agency and digital atelier specializing in bespoke brand identity, luxury web experiences, and strategic advisory for visionary leaders." />
+  <meta name="keywords" content="Studio Essentials, Luxe Theme, Luxury Branding, Creative Agency, High-End Web Design, Brand Strategy, Squarespace Alternative" />
+  <meta name="author" content="Studio Essentials" />
+  <meta property="og:title" content="Studio Essentials — Elevate Your Business Vision" />
+  <meta property="og:description" content="High-end branding, bespoke digital experiences, and strategic direction for visionary founders." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/images/hero_portrait.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Google Fonts: Cormorant Garamond (Serif) & Montserrat (Sans) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Montserrat:wght@200;300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' font-family='serif' fill='%23C8A882'>S</text></svg>" />
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <aside class="announcement-bar" aria-label="Announcement">
+    <div class="announcement-content">
+      <span class="sparkle">✦</span>
+      <span>NOW ACCEPTING Q3/Q4 PRIVATE COMMISSIONS & BRAND TRANSFORMATIONS</span>
+      <span class="sparkle">✦</span>
+      <span class="announcement-link"><a href="#consultation" class="js-open-modal">RESERVE AN INTAKE</a></span>
+    </div>
+  </aside>
+
+  <!-- Global Header / Navigation -->
+  <header class="site-header" id="site-header">
+    <div class="header-container">
+      <a href="#hero" class="brand-logo" aria-label="Studio Essentials Home">
+        <span class="logo-mark">STUDIO</span>
+        <span class="logo-accent">ESSENTIALS</span>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="desktop-nav" aria-label="Primary Navigation">
+        <ul class="nav-links">
+          <li><a href="#hero" class="nav-link active">HOME</a></li>
+          <li><a href="#services" class="nav-link">SERVICES</a></li>
+          <li><a href="#philosophy" class="nav-link">ABOUT</a></li>
+          <li><a href="#case-studies" class="nav-link">CASE STUDIES</a></li>
+          <li><a href="#contact" class="nav-link">CONTACT</a></li>
+        </ul>
+      </nav>
+
+      <!-- Header Action -->
+      <div class="header-actions">
+        <button class="btn-header-cta js-open-modal" aria-label="Book Private Consultation">
+          <span>CONSULTATION</span>
+        </button>
+        <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Navigation Menu" aria-expanded="false">
+          <span class="burger-bar"></span>
+          <span class="burger-bar"></span>
+          <span class="burger-bar"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Navigation -->
+    <div class="mobile-drawer" id="mobile-drawer">
+      <nav class="mobile-nav" aria-label="Mobile Navigation">
+        <ul class="mobile-nav-links">
+          <li><a href="#hero" class="mobile-nav-link">HOME</a></li>
+          <li><a href="#services" class="mobile-nav-link">SERVICES</a></li>
+          <li><a href="#philosophy" class="mobile-nav-link">ABOUT</a></li>
+          <li><a href="#case-studies" class="mobile-nav-link">CASE STUDIES</a></li>
+          <li><a href="#contact" class="mobile-nav-link">CONTACT</a></li>
+        </ul>
+        <div class="mobile-drawer-footer">
+          <button class="btn-primary full-width js-open-modal">BOOK CONSULTATION</button>
+          <div class="mobile-socials">
+            <a href="https://instagram.com" target="_blank" rel="noreferrer">Instagram</a>
+            <a href="https://pinterest.com" target="_blank" rel="noreferrer">Pinterest</a>
+            <a href="https://linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- ==============================================
+         1. HERO SECTION (Dark Espresso Editorial)
+         ============================================== -->
+    <section class="section-hero" id="hero">
+      <div class="hero-frame-container">
+        <!-- Inner Editorial Border Frame -->
+        <div class="hero-editorial-border">
+          
+          <!-- Subtle Top Badging -->
+          <div class="hero-meta-top">
+            <span class="meta-label">BESPOKE BRAND ARCHITECTURE</span>
+            <span class="meta-divider">—</span>
+            <span class="meta-label">EST. 2026</span>
+          </div>
+
+          <!-- Hero Image & Composition -->
+          <div class="hero-portrait-wrapper">
+            <div class="portrait-glow"></div>
+            <img 
+              src="assets/images/hero_portrait.jpg" 
+              alt="Studio Essentials Creative Director & Brand Strategist" 
+              class="hero-portrait-img"
+              loading="eager"
+            />
+          </div>
+
+          <!-- Central Headline & CTA Overlay -->
+          <div class="hero-content">
+            <h1 class="hero-headline">
+              <span class="headline-row">ELEVATE YOUR</span>
+              <span class="headline-row italic-serif">BUSINESS VISION</span>
+            </h1>
+
+            <p class="hero-subtext">
+              We design timeless identities, high-converting digital flagships, and commanding brand narratives for forward-thinking entrepreneurs and high-calibre businesses worldwide.
+            </p>
+
+            <div class="hero-cta-group">
+              <button class="btn-luxury-gold js-open-modal" id="hero-book-btn">
+                <span>BOOK CONSULTATION</span>
+                <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </button>
+              <a href="#services" class="btn-ghost-luxury">
+                <span>EXPLORE CAPABILITIES</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Subtle Bottom Indicator -->
+          <div class="hero-scroll-indicator">
+            <span class="scroll-text">DISCOVER MORE</span>
+            <div class="scroll-line"></div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==============================================
+         2. SERVICES SECTION (Warm Cream & Marble Sculpture)
+         ============================================== -->
+    <section class="section-services" id="services">
+      <div class="container">
+        
+        <div class="services-editorial-layout">
+          
+          <!-- Left Column: Iconic Sculpture Image -->
+          <div class="services-visual-column">
+            <div class="image-frame-luxury">
+              <img 
+                src="assets/images/service_sculpture.jpg" 
+                alt="Sculptural striped marble sphere with draping silk fabric - Studio Essentials Aesthetic" 
+                class="service-sculpture-img"
+                loading="lazy"
+              />
+              <div class="frame-tag">ARTISANAL HARMONY</div>
+            </div>
+          </div>
+
+          <!-- Right Column: Text & Service Offerings -->
+          <div class="services-content-column">
+            <div class="section-eyebrow">DISTINCTIVE CAPABILITIES</div>
+            <h2 class="section-title">YOUR SERVICES</h2>
+            
+            <p class="service-lead-paragraph">
+              True luxury is effortless clarity. We curate bespoke visual identities and intuitive digital architecture tailored to articulate your unique authority, command premium positioning, and establish an unforgettable presence.
+            </p>
+
+            <!-- Feature Accordion / Cards -->
+            <div class="service-pills-list">
+              <div class="service-pill-item">
+                <div class="pill-number">01</div>
+                <div class="pill-info">
+                  <h3 class="pill-title">Bespoke Brand Identity & Positioning</h3>
+                  <p class="pill-desc">Foundational brand books, signature typographic systems, tailored color theory, and high-impact collateral design.</p>
+                </div>
+              </div>
+
+              <div class="service-pill-item">
+                <div class="pill-number">02</div>
+                <div class="pill-info">
+                  <h3 class="pill-title">High-Aesthetic Digital Flagships</h3>
+                  <p class="pill-desc">Custom-engineered web spaces, editorial responsive experiences, and seamless client portals crafted for maximum engagement.</p>
+                </div>
+              </div>
+
+              <div class="service-pill-item">
+                <div class="pill-number">03</div>
+                <div class="pill-info">
+                  <h3 class="pill-title">Creative Direction & Visual Production</h3>
+                  <p class="pill-desc">Editorial campaign concepts, bespoke photography curation, artistic styling, and cinematic brand narratives.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Action Link -->
+            <div class="service-action-wrap">
+              <a href="#case-studies" class="editorial-link">
+                <span>VIEW CASE STUDIES</span>
+                <span class="link-arrow">→</span>
+              </a>
+              <button class="editorial-link secondary js-open-modal">
+                <span>REQUEST PRICING SUITE</span>
+                <span class="link-arrow">→</span>
+              </button>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==============================================
+         3. TESTIMONIAL CAROUSEL (Dark Espresso Canvas)
+         ============================================== -->
+    <section class="section-testimonial" id="testimonials">
+      <div class="container">
+        
+        <div class="testimonial-carousel-wrapper">
+          
+          <!-- Slider Navigation Arrows -->
+          <button class="slider-arrow prev" id="slider-prev" aria-label="Previous Testimonial">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+          </button>
+
+          <button class="slider-arrow next" id="slider-next" aria-label="Next Testimonial">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </button>
+
+          <!-- Carousel Slides Track -->
+          <div class="testimonial-slides" id="testimonial-track">
+
+            <!-- Slide 1 -->
+            <div class="testimonial-slide active">
+              <div class="client-avatar-wrap">
+                <img 
+                  src="assets/images/avatar_testimonial.jpg" 
+                  alt="Nora Vance - Founder & CEO" 
+                  class="client-avatar"
+                />
+              </div>
+              <blockquote class="testimonial-quote">
+                “Studio Essentials transformed our brand from overlooked to extraordinary. Their balance of understated elegance and razor-sharp digital precision elevated our average client retainer by over 240% within four months.”
+              </blockquote>
+              <div class="client-meta">
+                <span class="client-name">NORA VANCE</span>
+                <span class="client-title">Founder & Managing Principal, Valente Atelier</span>
+              </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="testimonial-slide">
+              <div class="client-avatar-wrap">
+                <img 
+                  src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=300&q=80" 
+                  alt="Helena Moreau - Creative Director" 
+                  class="client-avatar"
+                />
+              </div>
+              <blockquote class="testimonial-quote">
+                “Minimalist perfection. Every line, shade, and interaction feels deliberate and refined. Our new digital presence commands the level of respect and trust our advisory services deserve.”
+              </blockquote>
+              <div class="client-meta">
+                <span class="client-name">HELENA MOREAU</span>
+                <span class="client-title">Creative Director, Maison de Lumière</span>
+              </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="testimonial-slide">
+              <div class="client-avatar-wrap">
+                <img 
+                  src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=300&q=80" 
+                  alt="Camilla Sterling - Architectural Consultant" 
+                  class="client-avatar"
+                />
+              </div>
+              <blockquote class="testimonial-quote">
+                “The design aesthetic of Studio Essentials is in a class of its own. Seamless delivery, breathtaking imagery, and code that is effortlessly fast and deployable anywhere.”
+              </blockquote>
+              <div class="client-meta">
+                <span class="client-name">CAMILLA STERLING</span>
+                <span class="client-title">Partner, Sterling & Associates Architecture</span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Carousel Indicator Dots -->
+          <div class="carousel-dots" id="carousel-dots">
+            <button class="dot active" data-index="0" aria-label="Slide 1"></button>
+            <button class="dot" data-index="1" aria-label="Slide 2"></button>
+            <button class="dot" data-index="2" aria-label="Slide 3"></button>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==============================================
+         4. CASE STUDIES SECTION (Warm Cream Gallery)
+         ============================================== -->
+    <section class="section-case-studies" id="case-studies">
+      <div class="container">
+        
+        <div class="section-header-center">
+          <div class="section-eyebrow">SELECTED WORKS</div>
+          <h2 class="section-title">CASE STUDIES</h2>
+          <p class="section-subtitle">
+            An intimate showcase of transformative digital spaces and enduring visual identities engineered for industry leaders.
+          </p>
+        </div>
+
+        <div class="case-studies-grid">
+          
+          <!-- Card 1 -->
+          <article class="case-card" data-project="aurelia">
+            <div class="case-image-wrapper">
+              <img 
+                src="assets/images/case_study_one.jpg" 
+                alt="Case Study 1 - Architectural sculpture and curved wooden interior design" 
+                class="case-img"
+                loading="lazy"
+              />
+              <div class="case-overlay">
+                <span class="overlay-btn">EXPLORE DOSSIER</span>
+              </div>
+            </div>
+            <div class="case-info">
+              <div class="case-number">CASE STUDY 01</div>
+              <h3 class="case-title">AURELIA ARCHITECTURE</h3>
+              <p class="case-category">Spatial Identity & Digital Monograph</p>
+            </div>
+          </article>
+
+          <!-- Card 2 -->
+          <article class="case-card" data-project="lumen">
+            <div class="case-image-wrapper">
+              <img 
+                src="assets/images/case_study_two.jpg" 
+                alt="Case Study 2 - Abstract golden fluid marble art" 
+                class="case-img"
+                loading="lazy"
+              />
+              <div class="case-overlay">
+                <span class="overlay-btn">EXPLORE DOSSIER</span>
+              </div>
+            </div>
+            <div class="case-info">
+              <div class="case-number">CASE STUDY 02</div>
+              <h3 class="case-title">LUMEN & ESSENCE</h3>
+              <p class="case-category">Haute Parfumerie & E-Commerce Flagship</p>
+            </div>
+          </article>
+
+          <!-- Card 3 -->
+          <article class="case-card" data-project="nocturne">
+            <div class="case-image-wrapper">
+              <img 
+                src="assets/images/case_study_three.jpg" 
+                alt="Case Study 3 - Minimalist geometric ceramic sculpture" 
+                class="case-img"
+                loading="lazy"
+              />
+              <div class="case-overlay">
+                <span class="overlay-btn">EXPLORE DOSSIER</span>
+              </div>
+            </div>
+            <div class="case-info">
+              <div class="case-number">CASE STUDY 03</div>
+              <h3 class="case-title">NOCTURNE ATELIER</h3>
+              <p class="case-category">Curated Sculpture & Private Exhibition</p>
+            </div>
+          </article>
+
+        </div>
+
+        <div class="case-studies-footer">
+          <button class="btn-ghost-dark js-open-modal">
+            <span>INQUIRE ABOUT YOUR PROJECT</span>
+            <span class="btn-arrow">→</span>
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==============================================
+         5. METHODOLOGY / HOW IT WORKS
+         ============================================== -->
+    <section class="section-methodology" id="philosophy">
+      <div class="container">
+        
+        <div class="methodology-header">
+          <div class="section-eyebrow">OUR DISCIPLINE</div>
+          <h2 class="section-title">THE ESSENTIALS METHOD</h2>
+        </div>
+
+        <div class="methodology-grid">
+          
+          <div class="method-card">
+            <span class="method-step">01</span>
+            <h3 class="method-heading">Immersion & Vision</h3>
+            <p class="method-text">
+              We deconstruct your market footprint, audience psychology, and aspirational goals to architect a distinctive strategic foundation that cannot be duplicated.
+            </p>
+          </div>
+
+          <div class="method-card">
+            <span class="method-step">02</span>
+            <h3 class="method-heading">Artisanal Design</h3>
+            <p class="method-text">
+              Every font pairing, color gradient, and layout ratio is meticulously calibrated to create quiet luxury—balancing editorial grandeur with purposeful conversion.
+            </p>
+          </div>
+
+          <div class="method-card">
+            <span class="method-step">03</span>
+            <h3 class="method-heading">Digital Precision</h3>
+            <p class="method-text">
+              Flawless execution engineered with clean semantic code, lightning-fast cloud deployment, and effortless cross-device performance.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==============================================
+         6. SPLIT CALL-TO-ACTION & VIP BANNER
+         ============================================== -->
+    <section class="section-cta" id="contact">
+      <div class="cta-dual-grid">
+        
+        <!-- Left: Camel / Bronze Accent Box -->
+        <div class="cta-accent-panel">
+          <div class="accent-panel-inner">
+            <div class="panel-eyebrow">EXCLUSIVE ENGAGEMENT</div>
+            <h2 class="panel-title">READY TO REFINE YOUR DIGITAL FOOTPRINT?</h2>
+            <p class="panel-desc">
+              Schedule a private 30-minute discovery consultation with our Creative Director to explore bespoke advisory and web architecture options.
+            </p>
+            
+            <form class="newsletter-form" id="newsletter-form">
+              <label for="newsletter-email" class="sr-only">Your email address</label>
+              <div class="input-group-luxury">
+                <input 
+                  type="email" 
+                  id="newsletter-email" 
+                  placeholder="Enter your executive email..." 
+                  required 
+                />
+                <button type="submit" class="btn-submit-luxury">JOIN DOSSIER</button>
+              </div>
+              <p class="form-feedback" id="newsletter-feedback"></p>
+            </form>
+
+            <div class="perks-row">
+              <span>✦ Strict Confidentiality</span>
+              <span>✦ Direct Executive Access</span>
+              <span>✦ Custom Project Scope</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Editorial Image & Consultation Direct Action -->
+        <div class="cta-image-panel">
+          <img 
+            src="assets/images/hero_portrait.jpg" 
+            alt="Studio Essentials Private Consultations" 
+            class="cta-backdrop-img"
+            loading="lazy"
+          />
+          <div class="cta-panel-overlay">
+            <div class="overlay-content">
+              <span class="overlay-tag">PRIVATE SESSIONS</span>
+              <h3 class="overlay-heading">Bespoke Advisory Sessions</h3>
+              <p class="overlay-desc">Direct 1-on-1 strategy sprints for founders, agency owners, and luxury studios.</p>
+              <button class="btn-luxury-gold js-open-modal">SCHEDULE NOW</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==============================================
+       7. GLOBAL FOOTER
+       ============================================== -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      
+      <div class="footer-top-row">
+        <div class="footer-brand-col">
+          <a href="#hero" class="brand-logo footer-logo">
+            <span class="logo-mark">STUDIO</span>
+            <span class="logo-accent">ESSENTIALS</span>
+          </a>
+          <p class="footer-tagline">
+            Luxury web architecture and strategic creative direction for driven visionaries and elite brands.
+          </p>
+        </div>
+
+        <div class="footer-links-col">
+          <h4 class="footer-col-title">NAVIGATION</h4>
+          <ul>
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#philosophy">About</a></li>
+            <li><a href="#case-studies">Case Studies</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-col">
+          <h4 class="footer-col-title">EXPERTISE</h4>
+          <ul>
+            <li><a href="#services">Bespoke Branding</a></li>
+            <li><a href="#services">Digital Flagships</a></li>
+            <li><a href="#services">Creative Direction</a></li>
+            <li><a href="#services">Strategic Advisory</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-col">
+          <h4 class="footer-col-title">CONNECT</h4>
+          <ul>
+            <li><a href="https://instagram.com" target="_blank" rel="noreferrer">Instagram ↗</a></li>
+            <li><a href="https://pinterest.com" target="_blank" rel="noreferrer">Pinterest ↗</a></li>
+            <li><a href="https://linkedin.com" target="_blank" rel="noreferrer">LinkedIn ↗</a></li>
+            <li><a href="mailto:inquiries@studioessentials.com">inquiries@studioessentials.com</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom-row">
+        <p class="copyright">
+          © 2026 Studio Essentials. All rights reserved. Crafted with timeless aesthetic precision.
+        </p>
+        <div class="footer-legal">
+          <a href="#privacy">Privacy Protocol</a>
+          <span class="dot-sep">•</span>
+          <a href="#terms">Terms of Engagement</a>
+          <span class="dot-sep">•</span>
+          <a href="#github">GitHub & Vercel Ready</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ==============================================
+       CONSULTATION MODAL (Interactive Booking Dialog)
+       ============================================== -->
+  <div class="modal-backdrop" id="consultation-modal" aria-hidden="true" role="dialog" aria-labelledby="modal-title">
+    <div class="modal-window">
+      
+      <button class="modal-close-btn" id="modal-close" aria-label="Close Consultation Modal">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+
+      <div class="modal-header">
+        <span class="modal-eyebrow">STUDIO ESSENTIALS ADVISORY</span>
+        <h2 id="modal-title" class="modal-title">Initiate Your Consultation</h2>
+        <p class="modal-desc">
+          Tell us about your brand vision, goals, and desired project timeline. Our private office will respond within 24 hours.
+        </p>
+      </div>
+
+      <form class="modal-form" id="consultation-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="client-name">Full Name *</label>
+            <input type="text" id="client-name" name="name" required placeholder="e.g. Victoria Sinclair" />
+          </div>
+          <div class="form-group">
+            <label for="client-email">Executive Email *</label>
+            <input type="email" id="client-email" name="email" required placeholder="name@company.com" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="client-service">Area of Interest *</label>
+            <select id="client-service" name="service" required>
+              <option value="" disabled selected>Select an engagement model...</option>
+              <option value="complete-branding">Complete Bespoke Brand Identity</option>
+              <option value="digital-flagship">High-Aesthetic Digital Flagship Website</option>
+              <option value="creative-direction">Creative Direction & Editorial Production</option>
+              <option value="private-advisory">Private Strategic Advisory (Quarterly Retainer)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="client-budget">Project Investment *</label>
+            <select id="client-budget" name="budget" required>
+              <option value="" disabled selected>Estimated Investment Scope...</option>
+              <option value="tier1">$5,000 – $10,000</option>
+              <option value="tier2">$10,000 – $25,000</option>
+              <option value="tier3">$25,000 – $50,000+</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="client-message">Project Overview & Objectives</label>
+          <textarea id="client-message" name="message" rows="4" placeholder="Briefly describe your business, existing web presence, and what elevates your vision..."></textarea>
+        </div>
+
+        <button type="submit" class="btn-submit-modal" id="submit-booking-btn">
+          <span>TRANSMIT CONSULTATION REQUEST</span>
+          <span class="btn-arrow">→</span>
+        </button>
+
+        <p class="form-note">
+          🔒 All communications and creative discussions are bound under mutual non-disclosure principles.
+        </p>
+      </form>
+
+      <!-- Success Notification State -->
+      <div class="modal-success-state" id="modal-success" style="display: none;">
+        <div class="success-icon">✦</div>
+        <h3>Dossier Received</h3>
+        <p>Thank you for reaching out to Studio Essentials. Our senior advisory team will review your inquiry and connect via confidential correspondence.</p>
+        <button class="btn-ghost-luxury" id="success-close-btn">Return to Site</button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Case Study Quick-View Dossier Modal -->
+  <div class="modal-backdrop" id="case-modal" aria-hidden="true" role="dialog">
+    <div class="modal-window case-modal-window">
+      <button class="modal-close-btn" id="case-modal-close" aria-label="Close Case Modal">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+      <div class="case-dossier-content" id="case-dossier-body">
+        <!-- Injected via JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
