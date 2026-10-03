@@ -444,4 +444,77 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  /* ==========================================================================
+     8. Testimonials Carousel (Luxe Theme)
+     ========================================================================== */
+  const testimonials = [
+    {
+      quote: '“Kualitas canvas Essentials Bag Simple benar-benar kokoh dan elegan. Muat laptop kerja 14 inch, botol air tumbler 1L, dan matras pilates sekaligus. Bahannya tebal dan jatuh rapi.”',
+      author: 'NADIA LARASATI',
+      role: 'Verified Buyer • Jakarta Selatan'
+    },
+    {
+      quote: '“Grip socks white-darkbrown nya super estetik dan grip-nya mantap sekali pas latihan reformer pilates. Nggak licin sama sekali dan bahannya empuk di kaki.”',
+      author: 'CLARA MARSHALL',
+      role: 'Pilates Instructor • Surabaya'
+    },
+    {
+      quote: '“Motif Full Printed Essentials Bag sangat artistik dan unik. Tiap kali saya bawa ke studio banyak yang tanya beli di mana. Packing casaglow.id juga sangat aman.”',
+      author: 'VIONA KARINA',
+      role: 'Verified Buyer • Bandung'
+    }
+  ];
+
+  let currentTestiIdx = 0;
+  const testiPrevBtn = document.getElementById('testi-prev-btn');
+  const testiNextBtn = document.getElementById('testi-next-btn');
+  const testiQuoteBox = document.getElementById('testimonial-quote-box');
+  const testiDots = document.querySelectorAll('.testimonial-dots-row .dot');
+
+  function renderTestimonial(idx) {
+    if (!testiQuoteBox) return;
+    const t = testimonials[idx];
+    testiQuoteBox.style.opacity = '0.3';
+    setTimeout(() => {
+      testiQuoteBox.innerHTML = `
+        <blockquote class="testimonial-quote-text">${t.quote}</blockquote>
+        <div class="testimonial-author-tag">
+          <h5 class="author-name">${t.author}</h5>
+          <span class="author-role">${t.role}</span>
+        </div>
+      `;
+      testiQuoteBox.style.opacity = '1';
+    }, 150);
+
+    testiDots.forEach((dot, dIdx) => {
+      if (dIdx === idx) {
+        dot.classList.add('active');
+      } else {
+        dot.classList.remove('active');
+      }
+    });
+  }
+
+  if (testiPrevBtn) {
+    testiPrevBtn.addEventListener('click', () => {
+      currentTestiIdx = (currentTestiIdx - 1 + testimonials.length) % testimonials.length;
+      renderTestimonial(currentTestiIdx);
+    });
+  }
+
+  if (testiNextBtn) {
+    testiNextBtn.addEventListener('click', () => {
+      currentTestiIdx = (currentTestiIdx + 1) % testimonials.length;
+      renderTestimonial(currentTestiIdx);
+    });
+  }
+
+  testiDots.forEach((dot, idx) => {
+    dot.addEventListener('click', () => {
+      currentTestiIdx = idx;
+      renderTestimonial(currentTestiIdx);
+    });
+  });
+
 });
+
