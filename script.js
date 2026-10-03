@@ -1,6 +1,6 @@
 /**
- * STUDIO ESSENTIALS — Interactive Engine
- * Luxury editorial interactions, carousels, modal drawers & dossier views
+ * STUDIO ESSENTIALS — Interactive Engine & E-Commerce Cart
+ * Luxury editorial interactions, product catalog, cart drawer & WhatsApp checkout
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -27,11 +27,11 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ==========================================================================
-     2. Sticky Header Scroll Polish
+     2. Sticky Header Shadow
      ========================================================================== */
   const siteHeader = document.getElementById('site-header');
   window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
+    if (window.scrollY > 40) {
       siteHeader.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.45)';
     } else {
       siteHeader.style.boxShadow = 'none';
@@ -98,7 +98,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     startAutoSlide();
 
-    // Pause on hover
     const carouselWrapper = document.querySelector('.testimonial-carousel-wrapper');
     if (carouselWrapper) {
       carouselWrapper.addEventListener('mouseenter', () => clearInterval(slideInterval));
@@ -107,218 +106,304 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ==========================================================================
-     4. Consultation Modal Logic
+     4. Category Filter Tabs
      ========================================================================== */
-  const modal = document.getElementById('consultation-modal');
-  const modalClose = document.getElementById('modal-close');
-  const openButtons = document.querySelectorAll('.js-open-modal');
-  const consultationForm = document.getElementById('consultation-form');
-  const modalSuccess = document.getElementById('modal-success');
-  const successCloseBtn = document.getElementById('success-close-btn');
+  const filterTabs = document.querySelectorAll('.filter-tab');
+  const productCards = document.querySelectorAll('.product-card');
 
-  function openConsultationModal(e) {
-    if (e) e.preventDefault();
-    modal.classList.add('is-open');
-    modal.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden';
-  }
+  filterTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      filterTabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
 
-  function closeConsultationModal() {
-    modal.classList.remove('is-open');
-    modal.setAttribute('aria-hidden', 'true');
-    document.body.style.overflow = '';
-    
-    // Reset state after transition
-    setTimeout(() => {
-      if (consultationForm) consultationForm.style.display = 'flex';
-      if (modalSuccess) modalSuccess.style.display = 'none';
-      if (consultationForm) consultationForm.reset();
-    }, 400);
-  }
+      const filter = tab.getAttribute('data-filter');
 
-  openButtons.forEach(btn => {
-    btn.addEventListener('click', openConsultationModal);
+      productCards.forEach(card => {
+        const category = card.getAttribute('data-category');
+        if (filter === 'all' || category === filter) {
+          card.style.display = 'flex';
+          card.style.animation = 'fadeInDown 0.4s ease';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
   });
 
-  if (modalClose) {
-    modalClose.addEventListener('click', closeConsultationModal);
+  /* ==========================================================================
+     5. Shopping Cart State & Drawer Logic
+     ========================================================================== */
+  let cart = [];
+  const openCartBtn = document.getElementById('open-cart-btn');
+  const cartCloseBtn = document.getElementById('cart-close-btn');
+  const cartDrawerBackdrop = document.getElementById('cart-drawer-backdrop');
+  const cartItemsContainer = document.getElementById('cart-items-container');
+  const cartCounter = document.getElementById('cart-counter');
+  const cartTotalVal = document.getElementById('cart-total-val');
+  const checkoutWhatsappBtn = document.getElementById('checkout-whatsapp-btn');
+
+  function formatIDR(amount) {
+    return 'Rp ' + amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
   }
 
-  if (successCloseBtn) {
-    successCloseBtn.addEventListener('click', closeConsultationModal);
-  }
+  function updateCartUI() {
+    const totalCount = cart.reduce((acc, item) => acc + item.qty, 0);
+    cartCounter.textContent = totalCount;
 
-  if (modal) {
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal) {
-        closeConsultationModal();
-      }
+    if (cart.length === 0) {
+      cartItemsContainer.innerHTML = '<div class="cart-empty-message">Keranjang belanja Anda masih kosong.</div>';
+      cartTotalVal.textContent = 'Rp 0';
+      return;
+    }
+
+    let total = 0;
+    cartItemsContainer.innerHTML = '';
+
+    cart.forEach((item, index) => {
+      const itemSubtotal = item.price * item.qty;
+      total += itemSubtotal;
+
+      const itemRow = document.createElement('div');
+      itemRow.className = 'cart-item-row';
+      itemRow.innerHTML = `
+        <img src="${item.img}" alt="${item.name}" class="cart-item-thumb" />
+        <div class="cart-item-details">
+          <h4 class="cart-item-name">${item.name}</h4>
+          <div class="cart-item-price">${formatIDR(item.price)} × ${item.qty} = ${formatIDR(itemSubtotal)}</div>
+        </div>
+        <button class="cart-item-remove" data-index="${index}" title="Hapus Item">&times;</button>
+      `;
+      cartItemsContainer.appendChild(itemRow);
+    });
+
+    cartTotalVal.textContent = formatIDR(total);
+
+    // Attach remove handlers
+    document.querySelectorAll('.cart-item-remove').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const idx = parseInt(e.target.getAttribute('data-index'), 10);
+        cart.splice(idx, 1);
+        updateCartUI();
+      });
     });
   }
 
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && modal.classList.contains('is-open')) {
-      closeConsultationModal();
-    }
+  function openCartDrawer() {
+    cartDrawerBackdrop.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeCartDrawer() {
+    cartDrawerBackdrop.classList.remove('is-open');
+    document.body.style.overflow = '';
+  }
+
+  if (openCartBtn) openCartBtn.addEventListener('click', openCartDrawer);
+  if (cartCloseBtn) cartCloseBtn.addEventListener('click', closeCartDrawer);
+  if (cartDrawerBackdrop) {
+    cartDrawerBackdrop.addEventListener('click', (e) => {
+      if (e.target === cartDrawerBackdrop) closeCartDrawer();
+    });
+  }
+
+  // Add to cart buttons
+  document.querySelectorAll('.js-add-cart').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const id = btn.getAttribute('data-id');
+      const name = btn.getAttribute('data-name');
+      const price = parseInt(btn.getAttribute('data-price'), 10);
+      const img = btn.getAttribute('data-img');
+
+      const existingIndex = cart.findIndex(item => item.id === id);
+      if (existingIndex > -1) {
+        cart[existingIndex].qty += 1;
+      } else {
+        cart.push({ id, name, price, img, qty: 1 });
+      }
+
+      updateCartUI();
+      openCartDrawer();
+    });
   });
 
-  // Form Submission
-  if (consultationForm) {
-    consultationForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const submitBtn = document.getElementById('submit-booking-btn');
-      const originalText = submitBtn.innerHTML;
-      
-      submitBtn.innerHTML = '<span>TRANSMITTING CONFIDENTIAL DOSSIER...</span>';
-      submitBtn.disabled = true;
+  // WhatsApp Checkout
+  if (checkoutWhatsappBtn) {
+    checkoutWhatsappBtn.addEventListener('click', () => {
+      if (cart.length === 0) {
+        alert('Keranjang belanja Anda masih kosong. Silakan pilih produk terlebih dahulu.');
+        return;
+      }
 
-      setTimeout(() => {
-        consultationForm.style.display = 'none';
-        modalSuccess.style.display = 'block';
-        submitBtn.innerHTML = originalText;
-        submitBtn.disabled = false;
-      }, 900);
+      let message = `Halo Studio Essentials (casaglow.id), saya ingin memesan:\n\n`;
+      let total = 0;
+      cart.forEach((item, i) => {
+        const sub = item.price * item.qty;
+        total += sub;
+        message += `${i + 1}. ${item.name} (${item.qty} pcs) - ${formatIDR(sub)}\n`;
+      });
+      message += `\nTotal: ${formatIDR(total)}\n\nMohon info ketersediaan stok & ongkos kirim. Terima kasih!`;
+
+      const encoded = encodeURIComponent(message);
+      window.open(`https://wa.me/6281234567890?text=${encoded}`, '_blank');
     });
   }
 
   /* ==========================================================================
-     5. Case Studies Interactive Dossier Modal
+     6. Product Detail / Quick View Modal
      ========================================================================== */
-  const caseCards = document.querySelectorAll('.case-card');
-  const caseModal = document.getElementById('case-modal');
-  const caseModalClose = document.getElementById('case-modal-close');
-  const caseDossierBody = document.getElementById('case-dossier-body');
-
-  const caseData = {
-    aurelia: {
-      title: 'Aurelia Architecture',
-      tag: 'CASE STUDY 01 — ARCHITECTURAL HERITAGE & DIGITAL SPATIAL LIVING',
-      img: 'assets/images/case_study_one.jpg',
-      description: 'Aurelia sought to reposition their bespoke architecture firm to attract high-net-worth residential and cultural commissions. Studio Essentials designed a monograph-inspired digital experience, pairing monumental typography with cinematic spatial photography and editorial cadence.',
-      stat1: '+310%',
-      lbl1: 'High-Value Inquiry Volume',
-      stat2: '$14.2M',
-      lbl2: 'Commission Pipeline Generated'
+  const productData = {
+    'bag-simple': {
+      model: 'Essentials Bag',
+      brand: 'Studio Essentials',
+      category: 'Tas',
+      price: 'Rp 315.000',
+      rawPrice: 315000,
+      color: 'Abstract-colour',
+      desc: 'Simple design',
+      material: 'Premium heavy canvas',
+      img: 'assets/images/bag_simple.jpg',
+      fullDesc: 'Tas studio berkapasitas lapang dengan bahan premium heavy canvas yang kokoh dan tahan lama. Dirancang khusus untuk memuat matras pilates, handuk, pakaian olahraga, hingga esensial harian Anda dengan tampilan minimalis nan anggun.'
     },
-    lumen: {
-      title: 'Lumen & Essence',
-      tag: 'CASE STUDY 02 — HAUTE PARFUMERIE & E-COMMERCE FLAGSHIP',
-      img: 'assets/images/case_study_two.jpg',
-      description: 'For private perfume atelier Lumen & Essence, our objective was translating nuanced olfactory sensations into tactile digital design. We deployed bespoke liquid gold animation, sensory copywriting, and an effortless private-access checkout flow.',
-      stat1: '4.8x',
-      lbl1: 'Conversion Lift on VIP Drops',
-      stat2: '100%',
-      lbl2: 'Edition 01 Sold Out in 48 Hours'
+    'bag-printed': {
+      model: 'Essentials Bag',
+      brand: 'Studio Essentials',
+      category: 'Tas',
+      price: 'Rp 315.000',
+      rawPrice: 315000,
+      color: 'Abstract-colour',
+      desc: 'Full Printed Edition',
+      material: 'Premium heavy canvas',
+      img: 'assets/images/bag_printed.jpg',
+      fullDesc: 'Koleksi signature Essentials Bag dengan motif artistik full-printed berpadu kanvas tebal pilihan. Menggabungkan nilai seni grafis modern dengan fungsionalitas tas jinjing studio kelas atas.'
     },
-    nocturne: {
-      title: 'Nocturne Atelier',
-      tag: 'CASE STUDY 03 — CONTEMPORARY CERAMICS & EXCLUSIVE EXHIBITION',
-      img: 'assets/images/case_study_three.jpg',
-      description: 'Sculptural fine-art studio Nocturne Atelier needed an international platform to showcase limited ceramic series. We established an understated gallery aesthetic that lets the raw clay and geometric silhouettes command complete visitor attention.',
-      stat1: '82%',
-      lbl1: 'International Collector Reach',
-      stat2: 'Top 10',
-      lbl2: 'Art & Architecture Award Finalist'
+    'grip-socks': {
+      model: 'Grip Socks',
+      brand: 'Studio Essentials',
+      category: 'Kaos Kaki',
+      price: 'Rp 115.000',
+      rawPrice: 115000,
+      color: 'White - Darkbrown',
+      desc: 'Simple design',
+      material: 'Premium socks with non-slip studio grip',
+      img: 'assets/images/grip_socks.jpg',
+      fullDesc: 'Kaos kaki Pilates dan Yoga ergonomis dengan daya cengkeram silikon non-slip superior di bagian telapak. Kombinasi warna elegan white-darkbrown yang estetik dan lembut di kulit.'
+    },
+    'activewear': {
+      model: 'Activewear Capsule',
+      brand: 'Studio Essentials',
+      category: 'Activewear',
+      price: 'Konsultasi / Pre-Order',
+      rawPrice: 0,
+      color: 'Neutral Tones (Espresso & Ivory)',
+      desc: 'Sculpt Sets & Studio Tops',
+      material: '4-Way Sculpt Lycra',
+      img: 'assets/images/activewear.jpg',
+      fullDesc: 'Lini pakaian aktif studio dengan material elastis 4 arah yang membentuk tubuh secara alami dan memberikan keleluasaan bergerak tanpa hambatan saat sesi reformer maupun mat class.'
     }
   };
 
-  caseCards.forEach(card => {
-    card.addEventListener('click', () => {
-      const projectKey = card.getAttribute('data-project');
-      const project = caseData[projectKey];
+  const productModal = document.getElementById('product-modal');
+  const productModalClose = document.getElementById('product-modal-close');
+  const productModalBody = document.getElementById('product-modal-body');
 
-      if (project && caseDossierBody && caseModal) {
-        caseDossierBody.innerHTML = `
+  document.querySelectorAll('.js-view-product').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const key = btn.getAttribute('data-product');
+      const item = productData[key];
+
+      if (item && productModal && productModalBody) {
+        productModalBody.innerHTML = `
           <div class="case-dossier-grid">
             <div class="case-dossier-media">
-              <img src="${project.img}" alt="${project.title}" class="case-dossier-img" />
+              <img src="${item.img}" alt="${item.model}" class="case-dossier-img" />
             </div>
             <div class="case-dossier-text">
-              <span class="dossier-tag">${project.tag}</span>
-              <h3>${project.title}</h3>
-              <p class="dossier-body">${project.description}</p>
-              <div class="dossier-stats">
+              <span class="dossier-tag">${item.brand.toUpperCase()} • ${item.category.toUpperCase()}</span>
+              <h3>${item.model}</h3>
+              <p style="font-size: 1.3rem; font-family: var(--font-serif); color: var(--accent-gold); margin-bottom: 0.8rem; font-weight: 600;">
+                ${item.price}
+              </p>
+              <p class="dossier-body">${item.fullDesc}</p>
+              
+              <div class="dossier-stats" style="grid-template-columns: 1fr 1fr; margin-bottom: 1.5rem;">
                 <div class="stat-item">
-                  <div class="num">${project.stat1}</div>
-                  <div class="lbl">${project.lbl1}</div>
+                  <div class="lbl">WARNA</div>
+                  <div style="color: var(--text-light-primary); font-size: 0.88rem; font-weight: 600;">${item.color}</div>
                 </div>
                 <div class="stat-item">
-                  <div class="num">${project.stat2}</div>
-                  <div class="lbl">${project.lbl2}</div>
+                  <div class="lbl">BAHAN</div>
+                  <div style="color: var(--text-light-primary); font-size: 0.88rem; font-weight: 600;">${item.material}</div>
+                </div>
+                <div class="stat-item" style="margin-top: 0.75rem;">
+                  <div class="lbl">KETERANGAN</div>
+                  <div style="color: var(--text-light-primary); font-size: 0.88rem; font-weight: 600;">${item.desc}</div>
+                </div>
+                <div class="stat-item" style="margin-top: 0.75rem;">
+                  <div class="lbl">BRAND</div>
+                  <div style="color: var(--text-light-primary); font-size: 0.88rem; font-weight: 600;">${item.brand} (casaglow.id)</div>
                 </div>
               </div>
-              <div style="margin-top: 2rem;">
-                <button class="btn-luxury-gold js-open-modal" onclick="document.getElementById('case-modal').classList.remove('is-open'); document.getElementById('consultation-modal').classList.add('is-open');">
-                  <span>DISCUSS SIMILAR VISION</span>
-                </button>
+
+              <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                ${item.rawPrice > 0 ? `
+                  <button class="btn-luxury-gold" id="modal-add-to-cart-btn">
+                    <span>+ MASUKKAN KERANJANG</span>
+                  </button>
+                ` : ''}
+                <a href="https://wa.me/6281234567890?text=Halo%20Studio%20Essentials,%20saya%20tertarik%20dengan%20${encodeURIComponent(item.model + ' ' + item.desc)}" target="_blank" rel="noreferrer" class="btn-ghost-luxury">
+                  <span>ORDER VIA WHATSAPP ↗</span>
+                </a>
               </div>
             </div>
           </div>
         `;
 
-        caseModal.classList.add('is-open');
-        caseModal.setAttribute('aria-hidden', 'false');
+        const modalAddBtn = document.getElementById('modal-add-to-cart-btn');
+        if (modalAddBtn) {
+          modalAddBtn.addEventListener('click', () => {
+            const existing = cart.find(c => c.id === key);
+            if (existing) {
+              existing.qty += 1;
+            } else {
+              cart.push({ id: key, name: `${item.model} (${item.desc})`, price: item.rawPrice, img: item.img, qty: 1 });
+            }
+            updateCartUI();
+            productModal.classList.remove('is-open');
+            document.body.style.overflow = '';
+            openCartDrawer();
+          });
+        }
+
+        productModal.classList.add('is-open');
         document.body.style.overflow = 'hidden';
       }
     });
   });
 
-  if (caseModalClose && caseModal) {
-    caseModalClose.addEventListener('click', () => {
-      caseModal.classList.remove('is-open');
-      caseModal.setAttribute('aria-hidden', 'true');
+  if (productModalClose && productModal) {
+    productModalClose.addEventListener('click', () => {
+      productModal.classList.remove('is-open');
       document.body.style.overflow = '';
     });
 
-    caseModal.addEventListener('click', (e) => {
-      if (e.target === caseModal) {
-        caseModal.classList.remove('is-open');
-        caseModal.setAttribute('aria-hidden', 'true');
+    productModal.addEventListener('click', (e) => {
+      if (e.target === productModal) {
+        productModal.classList.remove('is-open');
         document.body.style.overflow = '';
       }
     });
   }
 
-  /* ==========================================================================
-     6. Newsletter / Dossier Form
-     ========================================================================== */
-  const newsletterForm = document.getElementById('newsletter-form');
-  const newsletterFeedback = document.getElementById('newsletter-feedback');
-
-  if (newsletterForm && newsletterFeedback) {
-    newsletterForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const emailInput = document.getElementById('newsletter-email');
-      if (emailInput && emailInput.value) {
-        newsletterFeedback.textContent = '✦ Welcome to the Studio Essentials Private Registry.';
-        newsletterFeedback.style.color = '#c8a882';
-        emailInput.value = '';
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      if (productModal && productModal.classList.contains('is-open')) {
+        productModal.classList.remove('is-open');
+        document.body.style.overflow = '';
       }
-    });
-  }
-
-  /* ==========================================================================
-     7. Smooth Active Navigation on Scroll
-     ========================================================================== */
-  const sections = document.querySelectorAll('section[id]');
-  const desktopLinks = document.querySelectorAll('.desktop-nav .nav-link');
-
-  window.addEventListener('scroll', () => {
-    let current = '';
-    sections.forEach(section => {
-      const sectionTop = section.offsetTop - 120;
-      const sectionHeight = section.offsetHeight;
-      if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
-        current = section.getAttribute('id');
+      if (cartDrawerBackdrop && cartDrawerBackdrop.classList.contains('is-open')) {
+        closeCartDrawer();
       }
-    });
-
-    desktopLinks.forEach(link => {
-      link.classList.remove('active');
-      if (link.getAttribute('href') === `#${current}`) {
-        link.classList.add('active');
-      }
-    });
+    }
   });
 
 });

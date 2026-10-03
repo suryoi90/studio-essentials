@@ -1,16 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Studio Essentials — Luxury Brand Strategy & Bespoke Creative Direction</title>
+  <title>Studio Essentials — Luxury Studio Bags, Grip Socks & Activewear | casaglow.id</title>
   
   <!-- SEO & Social Meta Tags -->
-  <meta name="description" content="Studio Essentials is a premier creative agency and digital atelier specializing in bespoke brand identity, luxury web experiences, and strategic advisory for visionary leaders." />
-  <meta name="keywords" content="Studio Essentials, Luxe Theme, Luxury Branding, Creative Agency, High-End Web Design, Brand Strategy, Squarespace Alternative" />
+  <meta name="description" content="Studio Essentials by casaglow.id. Koleksi luxury studio bags dari premium heavy canvas, studio grip socks white-darkbrown, dan activewear berkelas untuk pilates, yoga, dan mobilitas harian." />
+  <meta name="keywords" content="Studio Essentials, Casaglow, Essentials Bag, Grip Socks, Activewear, Tas Kanvas Premium, Kaos Kaki Pilates, Luxury Activewear Indonesia" />
   <meta name="author" content="Studio Essentials" />
-  <meta property="og:title" content="Studio Essentials — Elevate Your Business Vision" />
-  <meta property="og:description" content="High-end branding, bespoke digital experiences, and strategic direction for visionary founders." />
+  
+  <meta property="og:title" content="Studio Essentials — Luxury Studio Bags, Grip Socks & Activewear" />
+  <meta property="og:description" content="Tas heavy canvas premium, studio grip socks, dan activewear estetik untuk Pilates & gaya harian." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="assets/images/hero_portrait.jpg" />
   <meta property="og:url" content="https://casaglow.id" />
@@ -32,9 +33,9 @@
   <aside class="announcement-bar" aria-label="Announcement">
     <div class="announcement-content">
       <span class="sparkle">✦</span>
-      <span>NOW ACCEPTING Q3/Q4 PRIVATE COMMISSIONS & BRAND TRANSFORMATIONS</span>
+      <span>STUDIO ESSENTIALS READY STOCK: ESSENTIALS BAG & GRIP SOCKS</span>
       <span class="sparkle">✦</span>
-      <span class="announcement-link"><a href="#consultation" class="js-open-modal">RESERVE AN INTAKE</a></span>
+      <span class="announcement-link"><a href="#koleksi">ORDER SEKARANG</a></span>
     </div>
   </aside>
 
@@ -49,19 +50,29 @@
       <!-- Desktop Navigation Menu -->
       <nav class="desktop-nav" aria-label="Primary Navigation">
         <ul class="nav-links">
-          <li><a href="#hero" class="nav-link active">HOME</a></li>
-          <li><a href="#services" class="nav-link">SERVICES</a></li>
-          <li><a href="#philosophy" class="nav-link">ABOUT</a></li>
-          <li><a href="#case-studies" class="nav-link">CASE STUDIES</a></li>
-          <li><a href="#contact" class="nav-link">CONTACT</a></li>
+          <li><a href="#hero" class="nav-link active">BERANDA</a></li>
+          <li><a href="#koleksi" class="nav-link">KOLEKSI PRODUK</a></li>
+          <li><a href="#spesifikasi" class="nav-link">DETAIL & BAHAN</a></li>
+          <li><a href="#filosofi" class="nav-link">TENTANG KAMI</a></li>
+          <li><a href="#kontak" class="nav-link">PESAN VIA WHATSAPP</a></li>
         </ul>
       </nav>
 
-      <!-- Header Action -->
+      <!-- Header Action & Cart Badge -->
       <div class="header-actions">
-        <button class="btn-header-cta js-open-modal" aria-label="Book Private Consultation">
-          <span>CONSULTATION</span>
+        <button class="cart-toggle-btn" id="open-cart-btn" aria-label="Keranjang Belanja">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <path d="M16 10a4 4 0 0 1-8 0"></path>
+          </svg>
+          <span class="cart-count" id="cart-counter">0</span>
         </button>
+
+        <a href="https://wa.me/6281234567890?text=Halo%20Studio%20Essentials%20(casaglow.id),%20saya%20tertarik%20dengan%20koleksi%20produk%20Anda." target="_blank" rel="noreferrer" class="btn-header-cta" aria-label="WhatsApp Us">
+          <span>WHATSAPP ORDER</span>
+        </a>
+
         <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Navigation Menu" aria-expanded="false">
           <span class="burger-bar"></span>
           <span class="burger-bar"></span>
@@ -74,18 +85,19 @@
     <div class="mobile-drawer" id="mobile-drawer">
       <nav class="mobile-nav" aria-label="Mobile Navigation">
         <ul class="mobile-nav-links">
-          <li><a href="#hero" class="mobile-nav-link">HOME</a></li>
-          <li><a href="#services" class="mobile-nav-link">SERVICES</a></li>
-          <li><a href="#philosophy" class="mobile-nav-link">ABOUT</a></li>
-          <li><a href="#case-studies" class="mobile-nav-link">CASE STUDIES</a></li>
-          <li><a href="#contact" class="mobile-nav-link">CONTACT</a></li>
+          <li><a href="#hero" class="mobile-nav-link">BERANDA</a></li>
+          <li><a href="#koleksi" class="mobile-nav-link">KOLEKSI PRODUK</a></li>
+          <li><a href="#spesifikasi" class="mobile-nav-link">DETAIL & BAHAN</a></li>
+          <li><a href="#filosofi" class="mobile-nav-link">TENTANG KAMI</a></li>
+          <li><a href="#kontak" class="mobile-nav-link">KONTAK</a></li>
         </ul>
         <div class="mobile-drawer-footer">
-          <button class="btn-primary full-width js-open-modal">BOOK CONSULTATION</button>
+          <a href="https://wa.me/6281234567890?text=Halo%20Studio%20Essentials%20(casaglow.id),%20saya%20ingin%20memesan%20produk." target="_blank" rel="noreferrer" class="btn-primary full-width text-center">
+            ORDER VIA WHATSAPP
+          </a>
           <div class="mobile-socials">
             <a href="https://instagram.com" target="_blank" rel="noreferrer">Instagram</a>
-            <a href="https://pinterest.com" target="_blank" rel="noreferrer">Pinterest</a>
-            <a href="https://linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a>
+            <a href="https://casaglow.id">casaglow.id</a>
           </div>
         </div>
       </nav>
@@ -104,9 +116,9 @@
           
           <!-- Subtle Top Badging -->
           <div class="hero-meta-top">
-            <span class="meta-label">BESPOKE BRAND ARCHITECTURE</span>
+            <span class="meta-label">STUDIO ESSENTIALS — CASAGLOW.ID</span>
             <span class="meta-divider">—</span>
-            <span class="meta-label">EST. 2026</span>
+            <span class="meta-label">PILATES & STUDIO LIVING</span>
           </div>
 
           <!-- Hero Image & Composition -->
@@ -114,7 +126,7 @@
             <div class="portrait-glow"></div>
             <img 
               src="assets/images/hero_portrait.jpg" 
-              alt="Studio Essentials Creative Director & Brand Strategist" 
+              alt="Studio Essentials Curated Collection" 
               class="hero-portrait-img"
               loading="eager"
             />
@@ -124,30 +136,30 @@
           <div class="hero-content">
             <h1 class="hero-headline">
               <span class="headline-row">ELEVATE YOUR</span>
-              <span class="headline-row italic-serif">BUSINESS VISION</span>
+              <span class="headline-row italic-serif">STUDIO RITUAL</span>
             </h1>
 
             <p class="hero-subtext">
-              We design timeless identities, high-converting digital flagships, and commanding brand narratives for forward-thinking entrepreneurs and high-calibre businesses worldwide.
+              Diciptakan untuk menyempurnakan mobilitas dan estetika Anda. Hadir dengan <strong>Essentials Bag</strong> berbahan premium heavy canvas, <strong>Grip Socks</strong> berdaya cengkeram presisi, serta lini <strong>Activewear</strong> yang dirancang elegan dari reformer studio hingga gaya harian.
             </p>
 
             <div class="hero-cta-group">
-              <button class="btn-luxury-gold js-open-modal" id="hero-book-btn">
-                <span>BOOK CONSULTATION</span>
-                <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <a href="#koleksi" class="btn-luxury-gold">
+                <span>LIHAT KOLEKSI</span>
+                <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
                   <line x1="5" y1="12" x2="19" y2="12"></line>
                   <polyline points="12 5 19 12 12 19"></polyline>
                 </svg>
-              </button>
-              <a href="#services" class="btn-ghost-luxury">
-                <span>EXPLORE CAPABILITIES</span>
+              </a>
+              <a href="https://wa.me/6281234567890?text=Halo%20Studio%20Essentials,%20saya%20ingin%20tanya%20produk%20dan%20order." target="_blank" rel="noreferrer" class="btn-ghost-luxury">
+                <span>ORDER VIA WHATSAPP</span>
               </a>
             </div>
           </div>
 
           <!-- Subtle Bottom Indicator -->
           <div class="hero-scroll-indicator">
-            <span class="scroll-text">DISCOVER MORE</span>
+            <span class="scroll-text">EXPLORE CATALOGUE</span>
             <div class="scroll-line"></div>
           </div>
 
@@ -156,9 +168,271 @@
     </section>
 
     <!-- ==============================================
-         2. SERVICES SECTION (Warm Cream & Marble Sculpture)
+         2. SECTION PRODUK / KATALOG (Warm Cream)
          ============================================== -->
-    <section class="section-services" id="services">
+    <section class="section-case-studies" id="koleksi">
+      <div class="container">
+        
+        <div class="section-header-center">
+          <div class="section-eyebrow">CURATED CATALOGUE</div>
+          <h2 class="section-title">THE ESSENTIALS COLLECTION</h2>
+          <p class="section-subtitle">
+            Pilihan esensial studio dengan material premium berkualitas tinggi, jahitan presisi, dan estetika warna netral yang tak lekang waktu.
+          </p>
+
+          <!-- Filter Tabs -->
+          <div class="collection-filter-bar">
+            <button class="filter-tab active" data-filter="all">SEMUA PRODUK</button>
+            <button class="filter-tab" data-filter="tas">TAS (BAGS)</button>
+            <button class="filter-tab" data-filter="kaos-kaki">GRIP SOCKS</button>
+            <button class="filter-tab" data-filter="activewear">ACTIVEWEAR</button>
+          </div>
+        </div>
+
+        <div class="case-studies-grid product-grid">
+          
+          <!-- PRODUK 1: Essentials Bag (Simple Design) -->
+          <article class="case-card product-card" data-category="tas" data-id="bag-simple">
+            <div class="case-image-wrapper">
+              <span class="product-badge">BEST SELLER</span>
+              <img 
+                src="assets/images/bag_simple.jpg" 
+                alt="Essentials Bag Simple Design - Studio Essentials" 
+                class="case-img"
+                loading="lazy"
+              />
+              <div class="case-overlay">
+                <button class="overlay-btn js-view-product" data-product="bag-simple">LIHAT DETAIL & ORDER</button>
+              </div>
+            </div>
+            <div class="case-info product-info-block">
+              <div class="product-meta-row">
+                <span class="product-category-tag">TAS • HEAVY CANVAS</span>
+                <span class="product-color-dot" title="Abstract Colour"></span>
+              </div>
+              <h3 class="case-title product-title">ESSENTIALS BAG</h3>
+              <p class="product-variant">Simple Design Edition</p>
+              
+              <div class="product-specs-summary">
+                <span class="spec-pill">Warna: Abstract-Colour</span>
+                <span class="spec-pill">Bahan: Premium Heavy Canvas</span>
+              </div>
+
+              <div class="product-price-row">
+                <div class="price-val">Rp 315.000</div>
+                <button class="btn-add-cart js-add-cart" data-id="bag-simple" data-name="Essentials Bag (Simple Design)" data-price="315000" data-img="assets/images/bag_simple.jpg">
+                  + KERANJANG
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- PRODUK 2: Essentials Bag (Full Printed) -->
+          <article class="case-card product-card" data-category="tas" data-id="bag-printed">
+            <div class="case-image-wrapper">
+              <span class="product-badge luxury">SIGNATURE PRINT</span>
+              <img 
+                src="assets/images/bag_printed.jpg" 
+                alt="Essentials Bag Full Printed - Studio Essentials" 
+                class="case-img"
+                loading="lazy"
+              />
+              <div class="case-overlay">
+                <button class="overlay-btn js-view-product" data-product="bag-printed">LIHAT DETAIL & ORDER</button>
+              </div>
+            </div>
+            <div class="case-info product-info-block">
+              <div class="product-meta-row">
+                <span class="product-category-tag">TAS • FULL PRINTED</span>
+                <span class="product-color-dot" title="Abstract Colour"></span>
+              </div>
+              <h3 class="case-title product-title">ESSENTIALS BAG</h3>
+              <p class="product-variant">Full Printed Edition</p>
+
+              <div class="product-specs-summary">
+                <span class="spec-pill">Warna: Abstract-Colour</span>
+                <span class="spec-pill">Bahan: Premium Heavy Canvas</span>
+              </div>
+
+              <div class="product-price-row">
+                <div class="price-val">Rp 315.000</div>
+                <button class="btn-add-cart js-add-cart" data-id="bag-printed" data-name="Essentials Bag (Full Printed)" data-price="315000" data-img="assets/images/bag_printed.jpg">
+                  + KERANJANG
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- PRODUK 3: Grip Socks (White-Darkbrown) -->
+          <article class="case-card product-card" data-category="kaos-kaki" data-id="grip-socks">
+            <div class="case-image-wrapper">
+              <span class="product-badge">PILATES ESSENTIAL</span>
+              <img 
+                src="assets/images/grip_socks.jpg" 
+                alt="Studio Grip Socks White Darkbrown - Studio Essentials" 
+                class="case-img"
+                loading="lazy"
+              />
+              <div class="case-overlay">
+                <button class="overlay-btn js-view-product" data-product="grip-socks">LIHAT DETAIL & ORDER</button>
+              </div>
+            </div>
+            <div class="case-info product-info-block">
+              <div class="product-meta-row">
+                <span class="product-category-tag">KAOS KAKI • STUDIO GRIP</span>
+                <span class="product-color-dot dual" title="White - Darkbrown"></span>
+              </div>
+              <h3 class="case-title product-title">GRIP SOCKS</h3>
+              <p class="product-variant">Simple Design Edition</p>
+
+              <div class="product-specs-summary">
+                <span class="spec-pill">Warna: White - Darkbrown</span>
+                <span class="spec-pill">Bahan: Premium Non-Slip Socks</span>
+              </div>
+
+              <div class="product-price-row">
+                <div class="price-val">Rp 115.000</div>
+                <button class="btn-add-cart js-add-cart" data-id="grip-socks" data-name="Grip Socks (White-Darkbrown)" data-price="115000" data-img="assets/images/grip_socks.jpg">
+                  + KERANJANG
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- PRODUK 4: Activewear Capsule (Coming Soon / Preview) -->
+          <article class="case-card product-card" data-category="activewear" data-id="activewear">
+            <div class="case-image-wrapper">
+              <span class="product-badge new">CAPSULE PREVIEW</span>
+              <img 
+                src="assets/images/activewear.jpg" 
+                alt="Activewear Studio Essentials Collection" 
+                class="case-img"
+                loading="lazy"
+              />
+              <div class="case-overlay">
+                <button class="overlay-btn js-view-product" data-product="activewear">LIHAT DETAIL & PRE-ORDER</button>
+              </div>
+            </div>
+            <div class="case-info product-info-block">
+              <div class="product-meta-row">
+                <span class="product-category-tag">ACTIVEWEAR • S/S 2026</span>
+                <span class="product-color-dot dark" title="Espresso Neutral"></span>
+              </div>
+              <h3 class="case-title product-title">STUDIO ACTIVEWEAR</h3>
+              <p class="product-variant">Sculpt Set & Ribbed Tops</p>
+
+              <div class="product-specs-summary">
+                <span class="spec-pill">Warna: Neutral Espresso & Ivory</span>
+                <span class="spec-pill">Bahan: 4-Way Sculpt Lycra</span>
+              </div>
+
+              <div class="product-price-row">
+                <div class="price-val">KONSULTASI / PRE-ORDER</div>
+                <button class="btn-add-cart secondary js-view-product" data-product="activewear">
+                  DETAIL
+                </button>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <div class="case-studies-footer">
+          <a href="https://wa.me/6281234567890?text=Halo%20Studio%20Essentials,%20saya%20ingin%20memesan%20koleksi%20lengkap." target="_blank" rel="noreferrer" class="btn-ghost-dark">
+            <span>PESAN SEMUA VIA WHATSAPP</span>
+            <span class="btn-arrow">→</span>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==============================================
+         3. TABEL SPESIFIKASI & MATERIAL RESMI
+         ============================================== -->
+    <section class="section-methodology" id="spesifikasi">
+      <div class="container">
+        
+        <div class="methodology-header">
+          <div class="section-eyebrow">OFFICIAL SPECIFICATIONS</div>
+          <h2 class="section-title">TABEL DETAIL PRODUK</h2>
+          <p class="section-subtitle">Rincian spesifikasi resmi produk Studio Essentials.</p>
+        </div>
+
+        <div class="specs-table-container">
+          <table class="specs-luxury-table">
+            <thead>
+              <tr>
+                <th>Model</th>
+                <th>Brand</th>
+                <th>Kategori</th>
+                <th>Warna</th>
+                <th>Keterangan</th>
+                <th>Bahan</th>
+                <th>Harga Satuan</th>
+                <th>Order</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Essentials Bag</strong></td>
+                <td>Studio Essentials</td>
+                <td><span class="table-tag">Tas</span></td>
+                <td>Abstract-Colour</td>
+                <td>Simple design</td>
+                <td>Premium heavy canvas</td>
+                <td><strong class="table-price">Rp 315.000</strong></td>
+                <td>
+                  <a href="https://wa.me/6281234567890?text=Halo%20Studio%20Essentials,%20saya%20ingin%20memesan%20Essentials%20Bag%20Simple%20Design%20(Rp%20315.000)." target="_blank" rel="noreferrer" class="btn-table-order">Pesan ↗</a>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Essentials Bag</strong></td>
+                <td>Studio Essentials</td>
+                <td><span class="table-tag">Tas</span></td>
+                <td>Abstract-Colour</td>
+                <td>Full Printed</td>
+                <td>Premium heavy canvas</td>
+                <td><strong class="table-price">Rp 315.000</strong></td>
+                <td>
+                  <a href="https://wa.me/6281234567890?text=Halo%20Studio%20Essentials,%20saya%20ingin%20memesan%20Essentials%20Bag%20Full%20Printed%20(Rp%20315.000)." target="_blank" rel="noreferrer" class="btn-table-order">Pesan ↗</a>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Grip Socks</strong></td>
+                <td>Studio Essentials</td>
+                <td><span class="table-tag">Kaos Kaki</span></td>
+                <td>White-Darkbrown</td>
+                <td>Simple design</td>
+                <td>Premium socks</td>
+                <td><strong class="table-price">Rp 115.000</strong></td>
+                <td>
+                  <a href="https://wa.me/6281234567890?text=Halo%20Studio%20Essentials,%20saya%20ingin%20memesan%20Grip%20Socks%20White-Darkbrown%20(Rp%20115.000)." target="_blank" rel="noreferrer" class="btn-table-order">Pesan ↗</a>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Activewear</strong></td>
+                <td>Studio Essentials</td>
+                <td><span class="table-tag">Activewear</span></td>
+                <td>Neutral Tones</td>
+                <td>Sculpt & Studio Set</td>
+                <td>Premium Stretch Fabric</td>
+                <td><strong class="table-price">Capsule Collection</strong></td>
+                <td>
+                  <a href="https://wa.me/6281234567890?text=Halo%20Studio%20Essentials,%20saya%20ingin%20tanya%20tentang%20koleksi%20Activewear." target="_blank" rel="noreferrer" class="btn-table-order">Inquire ↗</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==============================================
+         4. FILOSOFI MATERIAL & CRAFTSMANSHIP
+         ============================================== -->
+    <section class="section-services" id="filosofi">
       <div class="container">
         
         <div class="services-editorial-layout">
@@ -168,21 +442,21 @@
             <div class="image-frame-luxury">
               <img 
                 src="assets/images/service_sculpture.jpg" 
-                alt="Sculptural striped marble sphere with draping silk fabric - Studio Essentials Aesthetic" 
+                alt="Craftsmanship & Timeless Studio Aesthetics" 
                 class="service-sculpture-img"
                 loading="lazy"
               />
-              <div class="frame-tag">ARTISANAL HARMONY</div>
+              <div class="frame-tag">ARTISANAL QUALITY</div>
             </div>
           </div>
 
           <!-- Right Column: Text & Service Offerings -->
           <div class="services-content-column">
-            <div class="section-eyebrow">DISTINCTIVE CAPABILITIES</div>
-            <h2 class="section-title">YOUR SERVICES</h2>
+            <div class="section-eyebrow">KEUNGGULAN MATERIAL</div>
+            <h2 class="section-title">KENAPA MEMILIH STUDIO ESSENTIALS?</h2>
             
             <p class="service-lead-paragraph">
-              True luxury is effortless clarity. We curate bespoke visual identities and intuitive digital architecture tailored to articulate your unique authority, command premium positioning, and establish an unforgettable presence.
+              Setiap produk Studio Essentials diciptakan melalui pemilihan material tanpa kompromi. Kami menggabungkan kekuatan fungsional untuk kebutuhan gerak aktif dengan estetika visual yang anggun dan berkelas.
             </p>
 
             <!-- Feature Accordion / Cards -->
@@ -190,38 +464,38 @@
               <div class="service-pill-item">
                 <div class="pill-number">01</div>
                 <div class="pill-info">
-                  <h3 class="pill-title">Bespoke Brand Identity & Positioning</h3>
-                  <p class="pill-desc">Foundational brand books, signature typographic systems, tailored color theory, and high-impact collateral design.</p>
+                  <h3 class="pill-title">Premium Heavy Canvas</h3>
+                  <p class="pill-desc">Tenunan tebal berdensitas tinggi yang kokoh menampung perlengkapan studio, botol minum, handuk, dan pakaian ganti tanpa kehilangan bentuk estetisnya.</p>
                 </div>
               </div>
 
               <div class="service-pill-item">
                 <div class="pill-number">02</div>
                 <div class="pill-info">
-                  <h3 class="pill-title">High-Aesthetic Digital Flagships</h3>
-                  <p class="pill-desc">Custom-engineered web spaces, editorial responsive experiences, and seamless client portals crafted for maximum engagement.</p>
+                  <h3 class="pill-title">Ergonomic Studio Grip</h3>
+                  <p class="pill-desc">Titik cengkeram silikon berdaya rekat superior pada Grip Socks yang menjaga stabilitas optimal di atas matras dan alat Reformer Pilates.</p>
                 </div>
               </div>
 
               <div class="service-pill-item">
                 <div class="pill-number">03</div>
                 <div class="pill-info">
-                  <h3 class="pill-title">Creative Direction & Visual Production</h3>
-                  <p class="pill-desc">Editorial campaign concepts, bespoke photography curation, artistic styling, and cinematic brand narratives.</p>
+                  <h3 class="pill-title">Abstract Colour Palette</h3>
+                  <p class="pill-desc">Skema warna eksklusif bernuansa earthy dan motif abstrak yang menyatu sempurna dengan gaya berpakaian modern Anda.</p>
                 </div>
               </div>
             </div>
 
             <!-- Action Link -->
             <div class="service-action-wrap">
-              <a href="#case-studies" class="editorial-link">
-                <span>VIEW CASE STUDIES</span>
+              <a href="#koleksi" class="editorial-link">
+                <span>PILIH PRODUK ANDA</span>
                 <span class="link-arrow">→</span>
               </a>
-              <button class="editorial-link secondary js-open-modal">
-                <span>REQUEST PRICING SUITE</span>
+              <a href="https://wa.me/6281234567890?text=Halo,%20apakah%20bisa%20konsultasi%20ukuran%20dan%20stok%20Studio%20Essentials?" target="_blank" rel="noreferrer" class="editorial-link secondary">
+                <span>KONSULTASI VIA WA</span>
                 <span class="link-arrow">→</span>
-              </button>
+              </a>
             </div>
 
           </div>
@@ -232,14 +506,13 @@
     </section>
 
     <!-- ==============================================
-         3. TESTIMONIAL CAROUSEL (Dark Espresso Canvas)
+         5. TESTIMONIAL CAROUSEL (Dark Espresso)
          ============================================== -->
-    <section class="section-testimonial" id="testimonials">
+    <section class="section-testimonial" id="testimoni">
       <div class="container">
         
         <div class="testimonial-carousel-wrapper">
           
-          <!-- Slider Navigation Arrows -->
           <button class="slider-arrow prev" id="slider-prev" aria-label="Previous Testimonial">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
               <polyline points="15 18 9 12 15 6"></polyline>
@@ -252,7 +525,6 @@
             </svg>
           </button>
 
-          <!-- Carousel Slides Track -->
           <div class="testimonial-slides" id="testimonial-track">
 
             <!-- Slide 1 -->
@@ -260,16 +532,16 @@
               <div class="client-avatar-wrap">
                 <img 
                   src="assets/images/avatar_testimonial.jpg" 
-                  alt="Nora Vance - Founder & CEO" 
+                  alt="Nadia L. - Pilates Enthusiast" 
                   class="client-avatar"
                 />
               </div>
               <blockquote class="testimonial-quote">
-                “Studio Essentials transformed our brand from overlooked to extraordinary. Their balance of understated elegance and razor-sharp digital precision elevated our average client retainer by over 240% within four months.”
+                “Essentials Bag Simple Design ini luar biasa kokoh! Muat matras, botol tumbler 1 liter, dan baju ganti. Kanvasnya tebal dan warnanya super estetik untuk dibawa ke mana saja.”
               </blockquote>
               <div class="client-meta">
-                <span class="client-name">NORA VANCE</span>
-                <span class="client-title">Founder & Managing Principal, Valente Atelier</span>
+                <span class="client-name">NADIA LARASATI</span>
+                <span class="client-title">Pilates Practitioner & Studio Member</span>
               </div>
             </div>
 
@@ -278,16 +550,16 @@
               <div class="client-avatar-wrap">
                 <img 
                   src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=300&q=80" 
-                  alt="Helena Moreau - Creative Director" 
+                  alt="Clara M. - Pilates Instructor" 
                   class="client-avatar"
                 />
               </div>
               <blockquote class="testimonial-quote">
-                “Minimalist perfection. Every line, shade, and interaction feels deliberate and refined. Our new digital presence commands the level of respect and trust our advisory services deserve.”
+                “Grip socks dari Studio Essentials cengkeramannya mantap sekali di atas carriage reformer. Warna white-darkbrown nya elegan dan nyaman dipakai berjam-jam mengajar.”
               </blockquote>
               <div class="client-meta">
-                <span class="client-name">HELENA MOREAU</span>
-                <span class="client-title">Creative Director, Maison de Lumière</span>
+                <span class="client-name">CLARA MARSHALL</span>
+                <span class="client-title">Certified Reformer Pilates Instructor</span>
               </div>
             </div>
 
@@ -296,22 +568,21 @@
               <div class="client-avatar-wrap">
                 <img 
                   src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=300&q=80" 
-                  alt="Camilla Sterling - Architectural Consultant" 
+                  alt="Viona K. - Wellness Enthusiast" 
                   class="client-avatar"
                 />
               </div>
               <blockquote class="testimonial-quote">
-                “The design aesthetic of Studio Essentials is in a class of its own. Seamless delivery, breathtaking imagery, and code that is effortlessly fast and deployable anywhere.”
+                “Essentials Bag Full Printed benar-benar bikin banyak orang nanya pas di studio. Kualitas jahitan sekelas brand internasional tapi dengan harga yang sangat masuk akal.”
               </blockquote>
               <div class="client-meta">
-                <span class="client-name">CAMILLA STERLING</span>
-                <span class="client-title">Partner, Sterling & Associates Architecture</span>
+                <span class="client-name">VIONA KARINA</span>
+                <span class="client-title">Wellness & Lifestyle Enthusiast</span>
               </div>
             </div>
 
           </div>
 
-          <!-- Carousel Indicator Dots -->
           <div class="carousel-dots" id="carousel-dots">
             <button class="dot active" data-index="0" aria-label="Slide 1"></button>
             <button class="dot" data-index="1" aria-label="Slide 2"></button>
@@ -324,168 +595,31 @@
     </section>
 
     <!-- ==============================================
-         4. CASE STUDIES SECTION (Warm Cream Gallery)
+         6. SPLIT CALL-TO-ACTION & DIRECT ORDER BANNER
          ============================================== -->
-    <section class="section-case-studies" id="case-studies">
-      <div class="container">
-        
-        <div class="section-header-center">
-          <div class="section-eyebrow">SELECTED WORKS</div>
-          <h2 class="section-title">CASE STUDIES</h2>
-          <p class="section-subtitle">
-            An intimate showcase of transformative digital spaces and enduring visual identities engineered for industry leaders.
-          </p>
-        </div>
-
-        <div class="case-studies-grid">
-          
-          <!-- Card 1 -->
-          <article class="case-card" data-project="aurelia">
-            <div class="case-image-wrapper">
-              <img 
-                src="assets/images/case_study_one.jpg" 
-                alt="Case Study 1 - Architectural sculpture and curved wooden interior design" 
-                class="case-img"
-                loading="lazy"
-              />
-              <div class="case-overlay">
-                <span class="overlay-btn">EXPLORE DOSSIER</span>
-              </div>
-            </div>
-            <div class="case-info">
-              <div class="case-number">CASE STUDY 01</div>
-              <h3 class="case-title">AURELIA ARCHITECTURE</h3>
-              <p class="case-category">Spatial Identity & Digital Monograph</p>
-            </div>
-          </article>
-
-          <!-- Card 2 -->
-          <article class="case-card" data-project="lumen">
-            <div class="case-image-wrapper">
-              <img 
-                src="assets/images/case_study_two.jpg" 
-                alt="Case Study 2 - Abstract golden fluid marble art" 
-                class="case-img"
-                loading="lazy"
-              />
-              <div class="case-overlay">
-                <span class="overlay-btn">EXPLORE DOSSIER</span>
-              </div>
-            </div>
-            <div class="case-info">
-              <div class="case-number">CASE STUDY 02</div>
-              <h3 class="case-title">LUMEN & ESSENCE</h3>
-              <p class="case-category">Haute Parfumerie & E-Commerce Flagship</p>
-            </div>
-          </article>
-
-          <!-- Card 3 -->
-          <article class="case-card" data-project="nocturne">
-            <div class="case-image-wrapper">
-              <img 
-                src="assets/images/case_study_three.jpg" 
-                alt="Case Study 3 - Minimalist geometric ceramic sculpture" 
-                class="case-img"
-                loading="lazy"
-              />
-              <div class="case-overlay">
-                <span class="overlay-btn">EXPLORE DOSSIER</span>
-              </div>
-            </div>
-            <div class="case-info">
-              <div class="case-number">CASE STUDY 03</div>
-              <h3 class="case-title">NOCTURNE ATELIER</h3>
-              <p class="case-category">Curated Sculpture & Private Exhibition</p>
-            </div>
-          </article>
-
-        </div>
-
-        <div class="case-studies-footer">
-          <button class="btn-ghost-dark js-open-modal">
-            <span>INQUIRE ABOUT YOUR PROJECT</span>
-            <span class="btn-arrow">→</span>
-          </button>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ==============================================
-         5. METHODOLOGY / HOW IT WORKS
-         ============================================== -->
-    <section class="section-methodology" id="philosophy">
-      <div class="container">
-        
-        <div class="methodology-header">
-          <div class="section-eyebrow">OUR DISCIPLINE</div>
-          <h2 class="section-title">THE ESSENTIALS METHOD</h2>
-        </div>
-
-        <div class="methodology-grid">
-          
-          <div class="method-card">
-            <span class="method-step">01</span>
-            <h3 class="method-heading">Immersion & Vision</h3>
-            <p class="method-text">
-              We deconstruct your market footprint, audience psychology, and aspirational goals to architect a distinctive strategic foundation that cannot be duplicated.
-            </p>
-          </div>
-
-          <div class="method-card">
-            <span class="method-step">02</span>
-            <h3 class="method-heading">Artisanal Design</h3>
-            <p class="method-text">
-              Every font pairing, color gradient, and layout ratio is meticulously calibrated to create quiet luxury—balancing editorial grandeur with purposeful conversion.
-            </p>
-          </div>
-
-          <div class="method-card">
-            <span class="method-step">03</span>
-            <h3 class="method-heading">Digital Precision</h3>
-            <p class="method-text">
-              Flawless execution engineered with clean semantic code, lightning-fast cloud deployment, and effortless cross-device performance.
-            </p>
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ==============================================
-         6. SPLIT CALL-TO-ACTION & VIP BANNER
-         ============================================== -->
-    <section class="section-cta" id="contact">
+    <section class="section-cta" id="kontak">
       <div class="cta-dual-grid">
         
-        <!-- Left: Camel / Bronze Accent Box -->
+        <!-- Left: Camel / Bronze Accent Panel -->
         <div class="cta-accent-panel">
           <div class="accent-panel-inner">
-            <div class="panel-eyebrow">EXCLUSIVE ENGAGEMENT</div>
-            <h2 class="panel-title">READY TO REFINE YOUR DIGITAL FOOTPRINT?</h2>
+            <div class="panel-eyebrow">PESAN CEPAT VIA WHATSAPP</div>
+            <h2 class="panel-title">SIAPKAN ESSENTIALS STUDIO ANDA HARI INI</h2>
             <p class="panel-desc">
-              Schedule a private 30-minute discovery consultation with our Creative Director to explore bespoke advisory and web architecture options.
+              Pesan langsung melalui WhatsApp resmi kami untuk konfirmasi ketersediaan stok, pengiriman kilat ke seluruh Indonesia, dan panduan ukuran.
             </p>
             
-            <form class="newsletter-form" id="newsletter-form">
-              <label for="newsletter-email" class="sr-only">Your email address</label>
-              <div class="input-group-luxury">
-                <input 
-                  type="email" 
-                  id="newsletter-email" 
-                  placeholder="Enter your executive email..." 
-                  required 
-                />
-                <button type="submit" class="btn-submit-luxury">JOIN DOSSIER</button>
-              </div>
-              <p class="form-feedback" id="newsletter-feedback"></p>
-            </form>
+            <div style="margin-bottom: 2rem;">
+              <a href="https://wa.me/6281234567890?text=Halo%20Studio%20Essentials%20(casaglow.id),%20saya%20ingin%20memesan%20produk." target="_blank" rel="noreferrer" class="btn-luxury-gold" style="width: 100%; justify-content: center;">
+                <span>CHAT ADMIN VIA WHATSAPP</span>
+                <span class="btn-arrow">↗</span>
+              </a>
+            </div>
 
             <div class="perks-row">
-              <span>✦ Strict Confidentiality</span>
-              <span>✦ Direct Executive Access</span>
-              <span>✦ Custom Project Scope</span>
+              <span>✦ Pengiriman Cepat</span>
+              <span>✦ Kualitas Premium Terjamin</span>
+              <span>✦ 100% Produk Original</span>
             </div>
           </div>
         </div>
@@ -494,16 +628,16 @@
         <div class="cta-image-panel">
           <img 
             src="assets/images/hero_portrait.jpg" 
-            alt="Studio Essentials Private Consultations" 
+            alt="Studio Essentials Casaglow" 
             class="cta-backdrop-img"
             loading="lazy"
           />
           <div class="cta-panel-overlay">
             <div class="overlay-content">
-              <span class="overlay-tag">PRIVATE SESSIONS</span>
-              <h3 class="overlay-heading">Bespoke Advisory Sessions</h3>
-              <p class="overlay-desc">Direct 1-on-1 strategy sprints for founders, agency owners, and luxury studios.</p>
-              <button class="btn-luxury-gold js-open-modal">SCHEDULE NOW</button>
+              <span class="overlay-tag">OFFICIAL BRAND ATELIER</span>
+              <h3 class="overlay-heading">Studio Essentials by Casaglow</h3>
+              <p class="overlay-desc">Setiap detail diciptakan untuk mendukung ritme hidup aktif Anda dengan kenyamanan dan estetika paripurna.</p>
+              <a href="#koleksi" class="btn-luxury-gold">BELANJA KOLEKSI</a>
             </div>
           </div>
         </div>
@@ -526,52 +660,48 @@
             <span class="logo-accent">ESSENTIALS</span>
           </a>
           <p class="footer-tagline">
-            Luxury web architecture and strategic creative direction for driven visionaries and elite brands.
+            Koleksi studio bags, pilates grip socks, dan activewear premium dari casaglow.id.
           </p>
         </div>
 
         <div class="footer-links-col">
-          <h4 class="footer-col-title">NAVIGATION</h4>
+          <h4 class="footer-col-title">KOLEKSI</h4>
           <ul>
-            <li><a href="#hero">Home</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#philosophy">About</a></li>
-            <li><a href="#case-studies">Case Studies</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#koleksi">Essentials Bag (Simple)</a></li>
+            <li><a href="#koleksi">Essentials Bag (Full Printed)</a></li>
+            <li><a href="#koleksi">Studio Grip Socks</a></li>
+            <li><a href="#koleksi">Activewear Collection</a></li>
           </ul>
         </div>
 
         <div class="footer-links-col">
-          <h4 class="footer-col-title">EXPERTISE</h4>
+          <h4 class="footer-col-title">INFORMASI</h4>
           <ul>
-            <li><a href="#services">Bespoke Branding</a></li>
-            <li><a href="#services">Digital Flagships</a></li>
-            <li><a href="#services">Creative Direction</a></li>
-            <li><a href="#services">Strategic Advisory</a></li>
+            <li><a href="#spesifikasi">Spesifikasi & Bahan</a></li>
+            <li><a href="#filosofi">Tentang Material</a></li>
+            <li><a href="#testimoni">Ulasan Klien</a></li>
+            <li><a href="https://casaglow.id">casaglow.id</a></li>
           </ul>
         </div>
 
         <div class="footer-links-col">
-          <h4 class="footer-col-title">CONNECT</h4>
+          <h4 class="footer-col-title">HUBUNGI KAMI</h4>
           <ul>
-            <li><a href="https://instagram.com" target="_blank" rel="noreferrer">Instagram ↗</a></li>
-            <li><a href="https://pinterest.com" target="_blank" rel="noreferrer">Pinterest ↗</a></li>
-            <li><a href="https://linkedin.com" target="_blank" rel="noreferrer">LinkedIn ↗</a></li>
+            <li><a href="https://wa.me/6281234567890?text=Halo%20Studio%20Essentials" target="_blank" rel="noreferrer">WhatsApp: +62 812-3456-7890</a></li>
             <li><a href="mailto:contact@casaglow.id">contact@casaglow.id</a></li>
+            <li><a href="https://instagram.com" target="_blank" rel="noreferrer">Instagram @studioessentials</a></li>
           </ul>
         </div>
       </div>
 
       <div class="footer-bottom-row">
         <p class="copyright">
-          © 2026 Studio Essentials. All rights reserved. Crafted with timeless aesthetic precision.
+          © 2026 Studio Essentials (casaglow.id). All rights reserved.
         </p>
         <div class="footer-legal">
-          <a href="#privacy">Privacy Protocol</a>
+          <a href="https://casaglow.id">Domain: casaglow.id</a>
           <span class="dot-sep">•</span>
-          <a href="#terms">Terms of Engagement</a>
-          <span class="dot-sep">•</span>
-          <a href="#github">GitHub & Vercel Ready</a>
+          <a href="#hero">Kembali ke Atas ↑</a>
         </div>
       </div>
 
@@ -579,97 +709,45 @@
   </footer>
 
   <!-- ==============================================
-       CONSULTATION MODAL (Interactive Booking Dialog)
+       PRODUCT DETAIL MODAL
        ============================================== -->
-  <div class="modal-backdrop" id="consultation-modal" aria-hidden="true" role="dialog" aria-labelledby="modal-title">
-    <div class="modal-window">
-      
-      <button class="modal-close-btn" id="modal-close" aria-label="Close Consultation Modal">
+  <div class="modal-backdrop" id="product-modal" aria-hidden="true" role="dialog">
+    <div class="modal-window case-modal-window">
+      <button class="modal-close-btn" id="product-modal-close" aria-label="Tutup Modal">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
           <line x1="18" y1="6" x2="6" y2="18"></line>
           <line x1="6" y1="6" x2="18" y2="18"></line>
         </svg>
       </button>
-
-      <div class="modal-header">
-        <span class="modal-eyebrow">STUDIO ESSENTIALS ADVISORY</span>
-        <h2 id="modal-title" class="modal-title">Initiate Your Consultation</h2>
-        <p class="modal-desc">
-          Tell us about your brand vision, goals, and desired project timeline. Our private office will respond within 24 hours.
-        </p>
+      <div class="case-dossier-content" id="product-modal-body">
+        <!-- Injected via JavaScript -->
       </div>
-
-      <form class="modal-form" id="consultation-form">
-        <div class="form-row">
-          <div class="form-group">
-            <label for="client-name">Full Name *</label>
-            <input type="text" id="client-name" name="name" required placeholder="e.g. Victoria Sinclair" />
-          </div>
-          <div class="form-group">
-            <label for="client-email">Executive Email *</label>
-            <input type="email" id="client-email" name="email" required placeholder="name@company.com" />
-          </div>
-        </div>
-
-        <div class="form-row">
-          <div class="form-group">
-            <label for="client-service">Area of Interest *</label>
-            <select id="client-service" name="service" required>
-              <option value="" disabled selected>Select an engagement model...</option>
-              <option value="complete-branding">Complete Bespoke Brand Identity</option>
-              <option value="digital-flagship">High-Aesthetic Digital Flagship Website</option>
-              <option value="creative-direction">Creative Direction & Editorial Production</option>
-              <option value="private-advisory">Private Strategic Advisory (Quarterly Retainer)</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="client-budget">Project Investment *</label>
-            <select id="client-budget" name="budget" required>
-              <option value="" disabled selected>Estimated Investment Scope...</option>
-              <option value="tier1">$5,000 – $10,000</option>
-              <option value="tier2">$10,000 – $25,000</option>
-              <option value="tier3">$25,000 – $50,000+</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label for="client-message">Project Overview & Objectives</label>
-          <textarea id="client-message" name="message" rows="4" placeholder="Briefly describe your business, existing web presence, and what elevates your vision..."></textarea>
-        </div>
-
-        <button type="submit" class="btn-submit-modal" id="submit-booking-btn">
-          <span>TRANSMIT CONSULTATION REQUEST</span>
-          <span class="btn-arrow">→</span>
-        </button>
-
-        <p class="form-note">
-          🔒 All communications and creative discussions are bound under mutual non-disclosure principles.
-        </p>
-      </form>
-
-      <!-- Success Notification State -->
-      <div class="modal-success-state" id="modal-success" style="display: none;">
-        <div class="success-icon">✦</div>
-        <h3>Dossier Received</h3>
-        <p>Thank you for reaching out to Studio Essentials. Our senior advisory team will review your inquiry and connect via confidential correspondence.</p>
-        <button class="btn-ghost-luxury" id="success-close-btn">Return to Site</button>
-      </div>
-
     </div>
   </div>
 
-  <!-- Case Study Quick-View Dossier Modal -->
-  <div class="modal-backdrop" id="case-modal" aria-hidden="true" role="dialog">
-    <div class="modal-window case-modal-window">
-      <button class="modal-close-btn" id="case-modal-close" aria-label="Close Case Modal">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-          <line x1="18" y1="6" x2="6" y2="18"></line>
-          <line x1="6" y1="6" x2="18" y2="18"></line>
-        </svg>
-      </button>
-      <div class="case-dossier-content" id="case-dossier-body">
-        <!-- Injected via JavaScript -->
+  <!-- ==============================================
+       SHOPPING CART DRAWER
+       ============================================== -->
+  <div class="cart-drawer-backdrop" id="cart-drawer-backdrop">
+    <div class="cart-drawer" id="cart-drawer">
+      <div class="cart-drawer-header">
+        <h3>KERANJANG BELANJA</h3>
+        <button class="cart-close-btn" id="cart-close-btn">&times;</button>
+      </div>
+      
+      <div class="cart-drawer-body" id="cart-items-container">
+        <div class="cart-empty-message">Keranjang belanja Anda masih kosong.</div>
+      </div>
+
+      <div class="cart-drawer-footer">
+        <div class="cart-subtotal-row">
+          <span>Total:</span>
+          <span class="cart-total-amount" id="cart-total-val">Rp 0</span>
+        </div>
+        <button class="btn-luxury-gold full-width" id="checkout-whatsapp-btn" style="width: 100%; justify-content: center;">
+          <span>CHECKOUT VIA WHATSAPP</span>
+          <span class="btn-arrow">→</span>
+        </button>
       </div>
     </div>
   </div>
