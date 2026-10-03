@@ -485,36 +485,122 @@ ul {
   color: var(--accent-gold-dark);
 }
 
-/* Giant Masthead Title: PORTFOLIO */
+/* ==============================================
+   EDITORIAL MASTHEAD: "About the FOUNDER" Signature Font Pairing
+   Reference: Pinyon Script Calligraphy + Bodoni Moda / Italiana Condensed Serif
+   ============================================== */
 .editorial-masthead {
   width: 100%;
-  margin: 0.25rem 0 2rem;
-  border-bottom: 1px solid rgba(22, 15, 12, 0.08);
-  padding-bottom: 1rem;
+  margin: 0.5rem 0 2rem;
+  border-bottom: 1px solid rgba(22, 15, 12, 0.09);
+  padding-bottom: 1.75rem;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.75rem;
 }
 
-.giant-portfolio-title {
-  font-family: var(--font-masthead);
-  font-size: clamp(3.8rem, 13.8vw, 11.5rem);
-  font-weight: 400;
-  line-height: 0.86;
-  color: var(--text-dark-primary);
-  text-transform: uppercase;
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  letter-spacing: -0.01em;
+.about-founder-header {
+  display: inline-flex;
+  flex-direction: column;
+  position: relative;
+  line-height: 0.85;
   user-select: none;
 }
 
-.giant-portfolio-title span {
-  display: inline-block;
-  transition: transform 0.3s ease;
+/* Line 1: "About" in sweeping Pinyon Script cursive */
+.script-row-about {
+  display: block;
+  font-family: 'Pinyon Script', cursive;
+  font-size: clamp(4rem, 11vw, 9.8rem);
+  font-weight: 400;
+  color: var(--text-dark-primary);
+  line-height: 0.72;
+  letter-spacing: 0.01em;
+  transform: translate(0.04em, 0.26em) rotate(-1.5deg);
+  z-index: 2;
+  position: relative;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.6);
 }
 
-.giant-portfolio-title span:hover {
-  transform: translateY(-3px);
+/* Line 2: "the" + "FOUNDER" */
+.serif-row-founder {
+  display: flex;
+  align-items: baseline;
+  position: relative;
+  z-index: 1;
+}
+
+/* "the" prefix in Pinyon Script cursive */
+.script-word-the {
+  display: inline-block;
+  font-family: 'Pinyon Script', cursive;
+  font-size: clamp(2.8rem, 8vw, 7.2rem);
+  font-weight: 400;
+  color: var(--text-dark-primary);
+  line-height: 0.7;
+  margin-right: 0.14em;
+  transform: translateY(0.02em) rotate(-1.5deg);
+  position: relative;
+  z-index: 2;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.6);
+}
+
+/* "FOUNDER" in tall, condensed Didone / Bodoni Moda serif all-caps */
+.serif-word-founder {
+  font-family: 'Bodoni Moda', 'Italiana', 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(3.8rem, 12vw, 10.5rem);
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  color: var(--text-dark-primary);
+  text-transform: uppercase;
+  line-height: 0.82;
+  margin: 0;
+  display: inline-block;
+}
+
+/* Supporting Masthead Meta on the Right */
+.masthead-brand-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.65rem;
+  padding-bottom: 0.5rem;
+}
+
+.signature-duo-badge {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid var(--border-dark);
+  padding: 0.35rem 0.95rem;
+  border-radius: var(--radius-sm);
+  box-shadow: 0 4px 15px rgba(22, 15, 12, 0.05);
+}
+
+.badge-script {
+  font-family: 'Pinyon Script', cursive;
+  font-size: 1.65rem;
   color: var(--accent-gold-dark);
+  line-height: 1;
+}
+
+.badge-serif {
+  font-family: var(--font-serif);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  color: var(--text-dark-primary);
+}
+
+.masthead-sub-year {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  color: var(--text-dark-muted);
+  text-transform: uppercase;
 }
 
 /* Two-Column Editorial Spread */
