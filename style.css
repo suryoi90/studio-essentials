@@ -199,17 +199,19 @@ ul {
   margin: 0 auto;
   padding: 0 1.75rem;
   height: 74px;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-/* BRAND LOGO: PLUS JAKARTA SANS (Matching User Reference Image) */
+/* BRAND LOGO: PLUS JAKARTA SANS (Centered Stacked Minimalist Typography) */
 .brand-logo {
   display: inline-flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
+  text-align: center;
   text-decoration: none;
   background: transparent;
   padding: 0.35rem 0;
@@ -228,6 +230,7 @@ ul {
   color: #ffffff;
   text-transform: uppercase;
   line-height: 1.1;
+  text-align: center;
 }
 
 .brand-logo .logo-essentials {
@@ -239,17 +242,26 @@ ul {
   text-transform: uppercase;
   line-height: 1.1;
   margin-top: 1px;
+  text-align: center;
 }
 
-/* Desktop Navigation Menu (Matching Screenshot: HOME SERVICES ABOUT CASE STUDIES CONTACT) */
+/* Desktop Navigation Menu: Perfectly Centered on Viewport/Header */
 .desktop-navigation {
-  margin: 0 auto;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .desktop-navigation .nav-menu {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 2.8rem;
+  text-align: center;
 }
 
 .nav-item {
@@ -409,6 +421,8 @@ ul {
 .mobile-menu-list {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  text-align: center;
   gap: 1.6rem;
   margin-top: 2rem;
 }
