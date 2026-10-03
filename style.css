@@ -179,25 +179,46 @@ ul {
   justify-content: space-between;
 }
 
-/* Brand */
-.brand-brand {
-  display: flex;
+/* Brand Logo (Matching Studio & Essentials Serif Style in White) */
+.brand-logo {
+  display: inline-flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: #111827;
+  padding: 0.45rem 1.15rem 0.5rem;
+  border-radius: 6px;
+  line-height: 1.05;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.brand-name {
-  font-size: 1.15rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  color: var(--text-main);
-  line-height: 1.1;
+.brand-logo:hover {
+  transform: translateY(-1px);
+  background: #000000;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
 }
 
-.brand-sub {
-  font-size: 0.62rem;
+.brand-logo .logo-studio {
+  font-family: 'Cormorant Garamond', Garamond, Georgia, serif;
+  font-size: 1.35rem;
   font-weight: 600;
-  letter-spacing: 0.22em;
-  color: var(--text-muted);
+  letter-spacing: 0.28em;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+.brand-logo .logo-essentials {
+  font-family: 'Cormorant Garamond', Garamond, Georgia, serif; /* Disesuaikan sama dengan font tulisan STUDIO */
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.38em;
+  color: #ffffff; /* Warna tulisan putih */
+  text-transform: uppercase;
+  margin-top: 1px;
 }
 
 /* Navigation Links */
@@ -1369,6 +1390,16 @@ ul {
   grid-template-columns: 2fr 1fr 1fr 1.3fr;
   gap: 3rem;
   margin-bottom: 3.5rem;
+}
+
+.footer-col-main {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.footer-col-main .brand-logo {
+  align-self: flex-start;
 }
 
 .footer-bio {
