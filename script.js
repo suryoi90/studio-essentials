@@ -1,27 +1,25 @@
 /**
- * STUDIO ESSENTIALS — Interactive Engine & E-Commerce Cart
- * Luxury editorial interactions, product catalog, cart drawer & WhatsApp checkout
+ * STUDIO ESSENTIALS — Markly Bags Shop Interactive Engine
+ * Dynamic model switcher, catalog filters, shopping cart & WhatsApp checkout
  */
 
 document.addEventListener('DOMContentLoaded', () => {
 
   /* ==========================================================================
-     1. Mobile Navigation Drawer
+     1. Mobile Drawer Navigation
      ========================================================================== */
   const mobileToggle = document.getElementById('mobile-toggle');
   const mobileDrawer = document.getElementById('mobile-drawer');
-  const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+  const mobileLinks = document.querySelectorAll('.mobile-link');
 
   if (mobileToggle && mobileDrawer) {
     mobileToggle.addEventListener('click', () => {
-      const isOpen = mobileDrawer.classList.toggle('is-open');
-      mobileToggle.setAttribute('aria-expanded', isOpen);
+      mobileDrawer.classList.toggle('is-open');
     });
 
-    mobileNavLinks.forEach(link => {
+    mobileLinks.forEach(link => {
       link.addEventListener('click', () => {
         mobileDrawer.classList.remove('is-open');
-        mobileToggle.setAttribute('aria-expanded', 'false');
       });
     });
   }
@@ -31,98 +29,81 @@ document.addEventListener('DOMContentLoaded', () => {
      ========================================================================== */
   const siteHeader = document.getElementById('site-header');
   window.addEventListener('scroll', () => {
-    if (window.scrollY > 40) {
-      siteHeader.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.45)';
+    if (window.scrollY > 30) {
+      siteHeader.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.06)';
     } else {
       siteHeader.style.boxShadow = 'none';
     }
   });
 
   /* ==========================================================================
-     3. Testimonial Carousel
+     3. Hero Dynamic Model Switcher (Simple vs Full Printed)
      ========================================================================== */
-  const slides = document.querySelectorAll('.testimonial-slide');
-  const dots = document.querySelectorAll('.carousel-dots .dot');
-  const prevBtn = document.getElementById('slider-prev');
-  const nextBtn = document.getElementById('slider-next');
-  let currentSlide = 0;
-  let slideInterval = null;
+  const switcherBtns = document.querySelectorAll('.switcher-btn');
+  const heroDynamicImage = document.getElementById('hero-dynamic-image');
+  const heroModelTitle = document.getElementById('hero-model-title');
+  const heroModelSub = document.getElementById('hero-model-sub');
 
-  function showSlide(index) {
-    slides.forEach((slide, i) => {
-      slide.classList.toggle('active', i === index);
-    });
-    dots.forEach((dot, i) => {
-      dot.classList.toggle('active', i === index);
-    });
-    currentSlide = index;
-  }
-
-  function nextSlide() {
-    const nextIndex = (currentSlide + 1) % slides.length;
-    showSlide(nextIndex);
-  }
-
-  function prevSlide() {
-    const prevIndex = (currentSlide - 1 + slides.length) % slides.length;
-    showSlide(prevIndex);
-  }
-
-  if (nextBtn && prevBtn && slides.length > 0) {
-    nextBtn.addEventListener('click', () => {
-      nextSlide();
-      resetInterval();
-    });
-
-    prevBtn.addEventListener('click', () => {
-      prevSlide();
-      resetInterval();
-    });
-
-    dots.forEach((dot) => {
-      dot.addEventListener('click', () => {
-        const index = parseInt(dot.getAttribute('data-index'), 10);
-        showSlide(index);
-        resetInterval();
-      });
-    });
-
-    function startAutoSlide() {
-      slideInterval = setInterval(nextSlide, 7000);
+  const heroModels = {
+    simple: {
+      title: 'Essentials Bag (Simple Design)',
+      sub: 'Warna: Abstract-colour • Bahan: Premium heavy canvas',
+      img: 'assets/images/bag_hero.jpg'
+    },
+    printed: {
+      title: 'Essentials Bag (Full Printed)',
+      sub: 'Warna: Abstract-colour • Bahan: Premium heavy canvas',
+      img: 'assets/images/bag_printed.jpg'
     }
+  };
 
-    function resetInterval() {
-      clearInterval(slideInterval);
-      startAutoSlide();
-    }
+  switcherBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      switcherBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
 
-    startAutoSlide();
+      const modelKey = btn.getAttribute('data-model');
+      const data = heroModels[modelKey];
 
-    const carouselWrapper = document.querySelector('.testimonial-carousel-wrapper');
-    if (carouselWrapper) {
-      carouselWrapper.addEventListener('mouseenter', () => clearInterval(slideInterval));
-      carouselWrapper.addEventListener('mouseleave', () => startAutoSlide());
-    }
-  }
+      if (data && heroDynamicImage && heroModelTitle) {
+        heroDynamicImage.style.opacity = '0.3';
+        setTimeout(() => {
+          heroDynamicImage.src = data.img;
+          heroModelTitle.textContent = data.title;
+          heroModelSub.textContent = data.sub;
+          heroDynamicImage.style.opacity = '1';
+        }, 180);
+      }
+    });
+  });
 
   /* ==========================================================================
-     4. Category Filter Tabs
+     4. Category Filter Pills
      ========================================================================== */
-  const filterTabs = document.querySelectorAll('.filter-tab');
-  const productCards = document.querySelectorAll('.product-card');
+  const filterPills = document.querySelectorAll('.filter-pill');
+  const productCards = document.querySelectorAll('.markly-product-card');
 
-  filterTabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      filterTabs.forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
+  window.quickFilter = function(filterVal) {
+    const targetPill = document.querySelector(`.filter-pill[data-filter="${filterVal}"]`);
+    if (targetPill) targetPill.click();
+    const searchModal = document.getElementById('search-modal');
+    if (searchModal) searchModal.classList.remove('is-open');
+    const shopSec = document.getElementById('shop');
+    if (shopSec) shopSec.scrollIntoView({ behavior: 'smooth' });
+  };
 
-      const filter = tab.getAttribute('data-filter');
+  filterPills.forEach(pill => {
+    pill.addEventListener('click', () => {
+      filterPills.forEach(p => p.classList.remove('active'));
+      pill.classList.add('active');
+
+      const filter = pill.getAttribute('data-filter');
 
       productCards.forEach(card => {
-        const category = card.getAttribute('data-category');
-        if (filter === 'all' || category === filter) {
+        const cat = card.getAttribute('data-category');
+        if (filter === 'all' || cat === filter) {
           card.style.display = 'flex';
-          card.style.animation = 'fadeInDown 0.4s ease';
+          card.style.animation = 'fadeIn 0.35s ease';
         } else {
           card.style.display = 'none';
         }
@@ -131,15 +112,18 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* ==========================================================================
-     5. Shopping Cart State & Drawer Logic
+     5. Shopping Cart State & Drawer (Markly Style)
      ========================================================================== */
   let cart = [];
   const openCartBtn = document.getElementById('open-cart-btn');
   const cartCloseBtn = document.getElementById('cart-close-btn');
-  const cartDrawerBackdrop = document.getElementById('cart-drawer-backdrop');
+  const cartBackdrop = document.getElementById('cart-drawer-backdrop');
   const cartItemsContainer = document.getElementById('cart-items-container');
   const cartCounter = document.getElementById('cart-counter');
+  const cartDrawerCount = document.getElementById('cart-drawer-count');
   const cartTotalVal = document.getElementById('cart-total-val');
+  const shippingBarFill = document.getElementById('shipping-bar-fill');
+  const shippingProgressText = document.getElementById('shipping-progress-text');
   const checkoutWhatsappBtn = document.getElementById('checkout-whatsapp-btn');
 
   function formatIDR(amount) {
@@ -149,37 +133,58 @@ document.addEventListener('DOMContentLoaded', () => {
   function updateCartUI() {
     const totalCount = cart.reduce((acc, item) => acc + item.qty, 0);
     cartCounter.textContent = totalCount;
-
-    if (cart.length === 0) {
-      cartItemsContainer.innerHTML = '<div class="cart-empty-message">Keranjang belanja Anda masih kosong.</div>';
-      cartTotalVal.textContent = 'Rp 0';
-      return;
-    }
+    cartDrawerCount.textContent = `${totalCount} item${totalCount !== 1 ? 's' : ''}`;
 
     let total = 0;
-    cartItemsContainer.innerHTML = '';
-
-    cart.forEach((item, index) => {
-      const itemSubtotal = item.price * item.qty;
-      total += itemSubtotal;
-
-      const itemRow = document.createElement('div');
-      itemRow.className = 'cart-item-row';
-      itemRow.innerHTML = `
-        <img src="${item.img}" alt="${item.name}" class="cart-item-thumb" />
-        <div class="cart-item-details">
-          <h4 class="cart-item-name">${item.name}</h4>
-          <div class="cart-item-price">${formatIDR(item.price)} × ${item.qty} = ${formatIDR(itemSubtotal)}</div>
-        </div>
-        <button class="cart-item-remove" data-index="${index}" title="Hapus Item">&times;</button>
-      `;
-      cartItemsContainer.appendChild(itemRow);
+    cart.forEach(item => {
+      total += item.price * item.qty;
     });
 
     cartTotalVal.textContent = formatIDR(total);
 
-    // Attach remove handlers
-    document.querySelectorAll('.cart-item-remove').forEach(btn => {
+    // Free shipping progress (target: Rp 500.000)
+    const target = 500000;
+    const progress = Math.min(100, Math.round((total / target) * 100));
+    if (shippingBarFill) shippingBarFill.style.width = progress + '%';
+    
+    if (shippingProgressText) {
+      if (total >= target) {
+        shippingProgressText.textContent = '🎉 Selamat! Anda Mendapatkan Gratis Ongkir!';
+      } else {
+        const diff = target - total;
+        shippingProgressText.textContent = `Tambah ${formatIDR(diff)} lagi untuk Gratis Ongkir!`;
+      }
+    }
+
+    if (cart.length === 0) {
+      cartItemsContainer.innerHTML = `
+        <div class="cart-empty-state">
+          <div class="empty-icon">🛍️</div>
+          <p>Keranjang Anda masih kosong</p>
+          <a href="#shop" class="btn-solid-black" style="font-size: 0.8rem; padding: 0.6rem 1.2rem;" onclick="document.getElementById('cart-drawer-backdrop').classList.remove('is-open');">
+            Belanja Sekarang
+          </a>
+        </div>
+      `;
+      return;
+    }
+
+    cartItemsContainer.innerHTML = '';
+    cart.forEach((item, index) => {
+      const row = document.createElement('div');
+      row.className = 'cart-item-card';
+      row.innerHTML = `
+        <img src="${item.img}" alt="${item.name}" class="cart-thumb-img" />
+        <div class="cart-item-info">
+          <h4 class="cart-name">${item.name}</h4>
+          <div class="cart-price-math">${formatIDR(item.price)} × ${item.qty} = <strong>${formatIDR(item.price * item.qty)}</strong></div>
+        </div>
+        <button class="cart-trash-btn" data-index="${index}" title="Hapus">✕</button>
+      `;
+      cartItemsContainer.appendChild(row);
+    });
+
+    document.querySelectorAll('.cart-trash-btn').forEach(btn => {
       btn.addEventListener('click', (e) => {
         const idx = parseInt(e.target.getAttribute('data-index'), 10);
         cart.splice(idx, 1);
@@ -188,60 +193,61 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  function openCartDrawer() {
-    cartDrawerBackdrop.classList.add('is-open');
+  function openCart() {
+    cartBackdrop.classList.add('is-open');
     document.body.style.overflow = 'hidden';
   }
 
-  function closeCartDrawer() {
-    cartDrawerBackdrop.classList.remove('is-open');
+  function closeCart() {
+    cartBackdrop.classList.remove('is-open');
     document.body.style.overflow = '';
   }
 
-  if (openCartBtn) openCartBtn.addEventListener('click', openCartDrawer);
-  if (cartCloseBtn) cartCloseBtn.addEventListener('click', closeCartDrawer);
-  if (cartDrawerBackdrop) {
-    cartDrawerBackdrop.addEventListener('click', (e) => {
-      if (e.target === cartDrawerBackdrop) closeCartDrawer();
+  if (openCartBtn) openCartBtn.addEventListener('click', openCart);
+  if (cartCloseBtn) cartCloseBtn.addEventListener('click', closeCart);
+  if (cartBackdrop) {
+    cartBackdrop.addEventListener('click', (e) => {
+      if (e.target === cartBackdrop) closeCart();
     });
   }
 
   // Add to cart buttons
   document.querySelectorAll('.js-add-cart').forEach(btn => {
-    btn.addEventListener('click', (e) => {
+    btn.addEventListener('click', () => {
       const id = btn.getAttribute('data-id');
       const name = btn.getAttribute('data-name');
       const price = parseInt(btn.getAttribute('data-price'), 10);
       const img = btn.getAttribute('data-img');
 
-      const existingIndex = cart.findIndex(item => item.id === id);
-      if (existingIndex > -1) {
-        cart[existingIndex].qty += 1;
+      const existing = cart.find(item => item.id === id);
+      if (existing) {
+        existing.qty += 1;
       } else {
         cart.push({ id, name, price, img, qty: 1 });
       }
 
       updateCartUI();
-      openCartDrawer();
+      openCart();
     });
   });
 
-  // WhatsApp Checkout
+  // Checkout via WhatsApp
   if (checkoutWhatsappBtn) {
     checkoutWhatsappBtn.addEventListener('click', () => {
       if (cart.length === 0) {
-        alert('Keranjang belanja Anda masih kosong. Silakan pilih produk terlebih dahulu.');
+        alert('Keranjang belanja Anda masih kosong.');
         return;
       }
 
-      let message = `Halo Studio Essentials (casaglow.id), saya ingin memesan:\n\n`;
+      let message = `Halo Studio Essentials (casaglow.id),\nSaya ingin memesan produk berikut:\n\n`;
       let total = 0;
       cart.forEach((item, i) => {
         const sub = item.price * item.qty;
         total += sub;
         message += `${i + 1}. ${item.name} (${item.qty} pcs) - ${formatIDR(sub)}\n`;
       });
-      message += `\nTotal: ${formatIDR(total)}\n\nMohon info ketersediaan stok & ongkos kirim. Terima kasih!`;
+
+      message += `\nTotal Belanja: ${formatIDR(total)}\n\nMohon informasi ongkos kirim dan nomor rekening pembayaran. Terima kasih!`;
 
       const encoded = encodeURIComponent(message);
       window.open(`https://wa.me/6281234567890?text=${encoded}`, '_blank');
@@ -249,7 +255,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ==========================================================================
-     6. Product Detail / Quick View Modal
+     6. Product Detail Quick View Modal
      ========================================================================== */
   const productData = {
     'bag-simple': {
@@ -258,11 +264,11 @@ document.addEventListener('DOMContentLoaded', () => {
       category: 'Tas',
       price: 'Rp 315.000',
       rawPrice: 315000,
-      color: 'Abstract-colour',
-      desc: 'Simple design',
-      material: 'Premium heavy canvas',
+      color: 'abstract-colour',
+      desc: 'simple design',
+      material: 'premium heavy canvas',
       img: 'assets/images/bag_simple.jpg',
-      fullDesc: 'Tas studio berkapasitas lapang dengan bahan premium heavy canvas yang kokoh dan tahan lama. Dirancang khusus untuk memuat matras pilates, handuk, pakaian olahraga, hingga esensial harian Anda dengan tampilan minimalis nan anggun.'
+      fullDesc: 'Tas studio berkapasitas besar yang terbuat dari bahan premium heavy canvas berdensitas tinggi. Sangat kokoh untuk memuat matras pilates, botol tumbler 1 liter, handuk, pakaian ganti, dan perlengkapan harian Anda.'
     },
     'bag-printed': {
       model: 'Essentials Bag',
@@ -270,11 +276,11 @@ document.addEventListener('DOMContentLoaded', () => {
       category: 'Tas',
       price: 'Rp 315.000',
       rawPrice: 315000,
-      color: 'Abstract-colour',
+      color: 'abstract-colour',
       desc: 'Full Printed Edition',
-      material: 'Premium heavy canvas',
+      material: 'premium heavy canvas',
       img: 'assets/images/bag_printed.jpg',
-      fullDesc: 'Koleksi signature Essentials Bag dengan motif artistik full-printed berpadu kanvas tebal pilihan. Menggabungkan nilai seni grafis modern dengan fungsionalitas tas jinjing studio kelas atas.'
+      fullDesc: 'Edisi istimewa Essentials Bag dengan motif artistik full-printed abstrak. Memberikan tampilan berkelas dan modern saat dibawa ke studio maupun bepergian.'
     },
     'grip-socks': {
       model: 'Grip Socks',
@@ -282,23 +288,23 @@ document.addEventListener('DOMContentLoaded', () => {
       category: 'Kaos Kaki',
       price: 'Rp 115.000',
       rawPrice: 115000,
-      color: 'White - Darkbrown',
-      desc: 'Simple design',
-      material: 'Premium socks with non-slip studio grip',
+      color: 'white-darkbrown',
+      desc: 'simple design',
+      material: 'premium socks',
       img: 'assets/images/grip_socks.jpg',
-      fullDesc: 'Kaos kaki Pilates dan Yoga ergonomis dengan daya cengkeram silikon non-slip superior di bagian telapak. Kombinasi warna elegan white-darkbrown yang estetik dan lembut di kulit.'
+      fullDesc: 'Kaos kaki studio Pilates & Yoga dengan silikon grip anti-slip di bagian telapak. Menjamin kestabilan dan keamanan Anda di atas alat Reformer.'
     },
     'activewear': {
       model: 'Activewear Capsule',
       brand: 'Studio Essentials',
       category: 'Activewear',
-      price: 'Konsultasi / Pre-Order',
+      price: 'Capsule Preview / Pre-Order',
       rawPrice: 0,
-      color: 'Neutral Tones (Espresso & Ivory)',
-      desc: 'Sculpt Sets & Studio Tops',
-      material: '4-Way Sculpt Lycra',
+      color: 'neutral tones',
+      desc: 'Sculpt & Studio Set',
+      material: 'premium stretch fabric',
       img: 'assets/images/activewear.jpg',
-      fullDesc: 'Lini pakaian aktif studio dengan material elastis 4 arah yang membentuk tubuh secara alami dan memberikan keleluasaan bergerak tanpa hambatan saat sesi reformer maupun mat class.'
+      fullDesc: 'Lini pakaian aktif eksklusif Studio Essentials dengan material elastis 4 arah yang adem, nyaman, dan menyokong setiap gerakan tubuh.'
     }
   };
 
@@ -307,58 +313,56 @@ document.addEventListener('DOMContentLoaded', () => {
   const productModalBody = document.getElementById('product-modal-body');
 
   document.querySelectorAll('.js-view-product').forEach(btn => {
-    btn.addEventListener('click', (e) => {
+    btn.addEventListener('click', () => {
       const key = btn.getAttribute('data-product');
       const item = productData[key];
 
       if (item && productModal && productModalBody) {
         productModalBody.innerHTML = `
-          <div class="case-dossier-grid">
-            <div class="case-dossier-media">
-              <img src="${item.img}" alt="${item.model}" class="case-dossier-img" />
+          <div class="modal-product-layout">
+            <div class="modal-product-media">
+              <img src="${item.img}" alt="${item.model}" />
             </div>
-            <div class="case-dossier-text">
-              <span class="dossier-tag">${item.brand.toUpperCase()} • ${item.category.toUpperCase()}</span>
-              <h3>${item.model}</h3>
-              <p style="font-size: 1.3rem; font-family: var(--font-serif); color: var(--accent-gold); margin-bottom: 0.8rem; font-weight: 600;">
-                ${item.price}
-              </p>
-              <p class="dossier-body">${item.fullDesc}</p>
-              
-              <div class="dossier-stats" style="grid-template-columns: 1fr 1fr; margin-bottom: 1.5rem;">
-                <div class="stat-item">
-                  <div class="lbl">WARNA</div>
-                  <div style="color: var(--text-light-primary); font-size: 0.88rem; font-weight: 600;">${item.color}</div>
+            <div class="modal-product-info">
+              <span class="modal-product-kicker">${item.brand.toUpperCase()} • ${item.category.toUpperCase()}</span>
+              <h2 class="modal-product-title">${item.model}</h2>
+              <div class="modal-product-price">${item.price}</div>
+              <p class="modal-product-desc">${item.fullDesc}</p>
+
+              <div class="modal-specs-grid">
+                <div class="modal-spec-item">
+                  <strong>WARNA</strong>
+                  <span>${item.color}</span>
                 </div>
-                <div class="stat-item">
-                  <div class="lbl">BAHAN</div>
-                  <div style="color: var(--text-light-primary); font-size: 0.88rem; font-weight: 600;">${item.material}</div>
+                <div class="modal-spec-item">
+                  <strong>BAHAN</strong>
+                  <span>${item.material}</span>
                 </div>
-                <div class="stat-item" style="margin-top: 0.75rem;">
-                  <div class="lbl">KETERANGAN</div>
-                  <div style="color: var(--text-light-primary); font-size: 0.88rem; font-weight: 600;">${item.desc}</div>
+                <div class="modal-spec-item">
+                  <strong>KETERANGAN</strong>
+                  <span>${item.desc}</span>
                 </div>
-                <div class="stat-item" style="margin-top: 0.75rem;">
-                  <div class="lbl">BRAND</div>
-                  <div style="color: var(--text-light-primary); font-size: 0.88rem; font-weight: 600;">${item.brand} (casaglow.id)</div>
+                <div class="modal-spec-item">
+                  <strong>DOMAIN TOKO</strong>
+                  <span>casaglow.id</span>
                 </div>
               </div>
 
-              <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+              <div class="modal-actions-row">
                 ${item.rawPrice > 0 ? `
-                  <button class="btn-luxury-gold" id="modal-add-to-cart-btn">
-                    <span>+ MASUKKAN KERANJANG</span>
+                  <button class="btn-solid-black" id="modal-add-cart-btn">
+                    <span>+ Add to Bag</span>
                   </button>
                 ` : ''}
-                <a href="https://wa.me/6281234567890?text=Halo%20Studio%20Essentials,%20saya%20tertarik%20dengan%20${encodeURIComponent(item.model + ' ' + item.desc)}" target="_blank" rel="noreferrer" class="btn-ghost-luxury">
-                  <span>ORDER VIA WHATSAPP ↗</span>
+                <a href="https://wa.me/6281234567890?text=Halo%20Studio%20Essentials,%20saya%20tertarik%20dengan%20${encodeURIComponent(item.model + ' ' + item.desc)}" target="_blank" rel="noreferrer" class="btn-secondary-white">
+                  <span>Pesan Langsung via WhatsApp ↗</span>
                 </a>
               </div>
             </div>
           </div>
         `;
 
-        const modalAddBtn = document.getElementById('modal-add-to-cart-btn');
+        const modalAddBtn = document.getElementById('modal-add-cart-btn');
         if (modalAddBtn) {
           modalAddBtn.addEventListener('click', () => {
             const existing = cart.find(c => c.id === key);
@@ -370,7 +374,7 @@ document.addEventListener('DOMContentLoaded', () => {
             updateCartUI();
             productModal.classList.remove('is-open');
             document.body.style.overflow = '';
-            openCartDrawer();
+            openCart();
           });
         }
 
@@ -394,14 +398,56 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  /* ==========================================================================
+     7. Search Overlay
+     ========================================================================== */
+  const searchToggleBtn = document.getElementById('search-toggle-btn');
+  const searchModal = document.getElementById('search-modal');
+  const searchCloseBtn = document.getElementById('search-close-btn');
+  const searchInput = document.getElementById('search-input');
+
+  if (searchToggleBtn && searchModal) {
+    searchToggleBtn.addEventListener('click', () => {
+      searchModal.classList.add('is-open');
+      if (searchInput) searchInput.focus();
+    });
+
+    if (searchCloseBtn) {
+      searchCloseBtn.addEventListener('click', () => {
+        searchModal.classList.remove('is-open');
+      });
+    }
+
+    searchModal.addEventListener('click', (e) => {
+      if (e.target === searchModal) searchModal.classList.remove('is-open');
+    });
+
+    if (searchInput) {
+      searchInput.addEventListener('input', (e) => {
+        const query = e.target.value.toLowerCase().trim();
+        productCards.forEach(card => {
+          const text = card.textContent.toLowerCase();
+          if (text.includes(query)) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    }
+  }
+
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       if (productModal && productModal.classList.contains('is-open')) {
         productModal.classList.remove('is-open');
         document.body.style.overflow = '';
       }
-      if (cartDrawerBackdrop && cartDrawerBackdrop.classList.contains('is-open')) {
-        closeCartDrawer();
+      if (cartBackdrop && cartBackdrop.classList.contains('is-open')) {
+        closeCart();
+      }
+      if (searchModal && searchModal.classList.contains('is-open')) {
+        searchModal.classList.remove('is-open');
       }
     }
   });
